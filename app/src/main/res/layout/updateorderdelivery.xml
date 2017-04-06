@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/rectangle"
+    >
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/ic_settings"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/imageButton4" />
+    <EditText
+        android:id="@+id/updateorderdelivery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="47dp"
+        android:background="@android:color/transparent"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Update Order Delivery"
+
+        android:layout_marginBottom="20dp"
+        android:textSize="24sp"
+        android:layout_marginRight="21dp"
+        android:layout_marginEnd="21dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:id="@+id/reveivername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Receiver Name"
+        android:background="@android:color/transparent"
+        android:layout_below="@+id/updateorderdelivery"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="12dp" />
+
+    <EditText
+        android:id="@+id/receivernameinput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+
+        android:layout_below="@+id/reveivername"
+        android:layout_alignRight="@+id/updateorderdelivery"
+        android:layout_alignEnd="@+id/updateorderdelivery"
+        android:layout_alignLeft="@+id/reveivername"
+        android:layout_alignStart="@+id/reveivername" />
+
+    <EditText
+        android:id="@+id/editText12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Receiver NIC/ID"
+        android:layout_below="@+id/receivernameinput"
+        android:layout_alignLeft="@+id/reveivername"
+        android:layout_alignStart="@+id/reveivername"
+        android:background="@android:color/transparent"
+        />
+
+    <EditText
+        android:id="@+id/nic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+
+        android:layout_below="@+id/editText12"
+        android:layout_alignRight="@+id/receivernameinput"
+        android:layout_alignEnd="@+id/receivernameinput"
+        android:layout_alignLeft="@+id/receivernameinput"
+        android:layout_alignStart="@+id/receivernameinput" />
+
+    <EditText
+        android:id="@+id/editText15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Deliverd?"
+        android:layout_below="@+id/nic"
+        android:layout_alignLeft="@+id/editText12"
+        android:layout_alignStart="@+id/editText12"
+        android:background="@android:color/transparent"
+        />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text=""
+        android:layout_below="@+id/editText15"
+        android:layout_alignLeft="@+id/nic"
+        android:layout_alignStart="@+id/nic"
+        android:layout_marginLeft="11dp"
+        android:layout_marginStart="11dp" />
+
+    <EditText
+        android:id="@+id/editText16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Comment"
+        android:layout_below="@+id/checkBox"
+        android:layout_alignLeft="@+id/editText15"
+        android:layout_alignStart="@+id/editText15"
+        android:background="@android:color/transparent"
+        />
+
+    <EditText
+        android:id="@+id/editText17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+
+        android:layout_below="@+id/editText16"
+        android:layout_alignRight="@+id/nic"
+        android:layout_alignEnd="@+id/nic"
+        android:layout_alignLeft="@+id/editText16"
+        android:layout_alignStart="@+id/editText16" />
+    <Button
+
+        android:id="@+id/Done"
+        android:text="Done"
+        android:textAllCaps="false"
+        android:layout_width="120dp"
+        style="@style/button_style"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_marginTop="13dp"
+        android:layout_below="@+id/editText17"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>

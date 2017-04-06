@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/rectangle"
+    >
+
+    <EditText
+        android:id="@+id/editText25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="89dp"
+        android:layout_marginStart="89dp"
+        android:layout_marginTop="34dp"
+        android:background="@android:color/transparent"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Welcome Manager"
+        android:textSize="24sp"
+
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:id="@+id/editText26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Manger Orders"
+        android:textStyle="bold"
+        android:layout_marginBottom="19dp"
+        android:layout_above="@+id/imageButton8"
+        android:layout_alignLeft="@+id/editText27"
+        android:layout_alignStart="@+id/editText27"
+        android:layout_marginLeft="18dp"
+        android:layout_marginStart="18dp" />
+
+    <EditText
+        android:id="@+id/editText27"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:background="@android:color/transparent"
+        android:inputType="textPersonName"
+        android:text="Change Password"
+        android:textStyle="bold"
+        android:layout_marginBottom="11dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginStart="18dp"
+        android:layout_above="@+id/imageButton7"
+        android:layout_alignLeft="@+id/editText28"
+        android:layout_alignStart="@+id/editText28" />
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/ic_orders"
+        android:id="@+id/imageButton11"
+        android:layout_alignBottom="@+id/editText26"
+        android:layout_alignLeft="@+id/imageButton8"
+        android:layout_alignStart="@+id/imageButton8"
+        android:layout_marginBottom="42dp" />
+<ImageButton
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@mipmap/ic_changepassword"
+    android:layout_alignBottom="@+id/editText27"
+    android:layout_alignLeft="@+id/imageButton7"
+    android:layout_alignStart="@+id/imageButton7"
+    android:layout_marginBottom="28dp"
+    android:id="@+id/imageButton8" />
+    <EditText
+        android:id="@+id/editText28"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:background="@android:color/transparent"
+        android:inputType="textPersonName"
+        android:text="Manage Delivery Agent"
+        android:textStyle="bold"
+        android:layout_marginBottom="111dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/editText25"
+        android:layout_alignStart="@+id/editText25" />
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/ic_manageaccount"
+        android:layout_marginBottom="14dp"
+        android:id="@+id/imageButton7"
+        android:layout_above="@+id/editText28"
+        android:layout_centerHorizontal="true" />
+    <Button
+
+        android:id="@+id/buttonlogout"
+        android:text="Logout"
+        android:textAllCaps="false"
+        android:layout_width="150dp"
+        style="@style/button_style"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/imageButton7"
+        android:layout_toEndOf="@+id/imageButton7"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="24dp"
+
+        />
+</RelativeLayout>

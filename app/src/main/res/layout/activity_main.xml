@@ -41,10 +41,10 @@
             android:inputType="textPassword" />
 
         <Button
-            style="@style/button_style"
             android:id="@+id/button"
-            android:text="LOG IN"
-            android:textAllCaps="false"/>
+            style="@style/button_style"
+            android:text="Kasun"
+            android:textAllCaps="false" />
         <Button
             style="@style/button_style"
             android:id="@+id/button1"

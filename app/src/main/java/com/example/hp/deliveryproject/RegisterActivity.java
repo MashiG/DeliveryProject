@@ -39,7 +39,7 @@ public class RegisterActivity extends AppCompatActivity{
                 myRef = myRef.child("users");
                 myRef = myRef.child(textEmail.getText().toString());
                 if(myRef == null)
-                finish();
+                finish();*/
                 //finish();
                 overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
 

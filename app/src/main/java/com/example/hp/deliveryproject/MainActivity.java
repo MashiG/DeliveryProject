@@ -25,8 +25,6 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
-
-        //TEST COMMIT BHAGYA
-        //testing 123 kasun :D 
+        
     }
 }

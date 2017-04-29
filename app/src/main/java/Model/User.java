@@ -11,11 +11,9 @@ import com.google.firebase.database.ValueEventListener;
  */
 
 public class User {
-    String name;
-    String password;
-    Boolean loggedIn;
-    String email;
-    String phoneNumber;
+    //EMAIL is the unique ID
+    String name, password, email, phoneNumber, userType;
+    boolean loggedIn;
 
     public User(String name, String password, Boolean loggedIn, String email, String phoneNumber) {
         this.name = name;

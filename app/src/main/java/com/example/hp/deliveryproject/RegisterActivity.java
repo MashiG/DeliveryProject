@@ -37,7 +37,7 @@ public class RegisterActivity extends AppCompatActivity{
 
                 myRef = myRef.child("users");
                 myRef = myRef.child(userReg.getEmail());
-                myRef.setValue(userReg);
+                myRef.push().setValue(userReg);
             }
 
         });

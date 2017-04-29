@@ -1,13 +1,18 @@
 package com.example.hp.deliveryproject;
 
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import Model.User;
 
@@ -27,10 +32,31 @@ public class RegisterActivity extends AppCompatActivity{
         et_phone = (EditText) findViewById(R.id.phone);
         regbtn = (Button) findViewById(R.id.registbtn);
         regbtn.setOnClickListener(new View.OnClickListener(){
+            @RequiresApi(api = Build.VERSION_CODES.ECLAIR)
             @Override
             public void onClick(View v){
+                /*DatabaseReference myRef = database.getReference("tables");
+                myRef = myRef.child("users");
+                myRef = myRef.child(textEmail.getText().toString());
+                if(myRef == null)
                 finish();
+                //finish();
                 overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
+
+                //User userReg =  new User(et_name.getText().toString(),et_confirmpassword.getText().toString(),true,et_email.getText().toString(),et_phone.getText().toString());
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                //DatabaseReference myRef = database.getReference("tables");
+
+
+                //myRef = myRef.child("users");
+
+                DatabaseReference rootRef =database.getReference("tables");
+                rootRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.child("users").hasChild(et_email.getText().toString())){
+                            et_name.setText("fuck");
+                        }else{
                 User userReg =  new User(et_name.getText().toString(),et_confirmpassword.getText().toString(),true,et_email.getText().toString(),et_phone.getText().toString());
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                 DatabaseReference myRef = database.getReference("tables");
@@ -38,6 +64,15 @@ public class RegisterActivity extends AppCompatActivity{
                 myRef = myRef.child("users");
                 myRef = myRef.child(userReg.getEmail());
                 myRef.push().setValue(userReg);
+                        }
+            }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+
             }
 
         });

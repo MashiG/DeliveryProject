@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this, RegisterActivity.class);
                 startActivity(i);
-
+                //TEST!
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
 

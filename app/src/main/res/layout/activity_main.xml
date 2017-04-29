@@ -28,26 +28,23 @@
             app:srcCompat="@drawable/deliveritlogo" />
 
         <EditText
-            android:id="@+id/editText"
-
-
+            android:id="@+id/textEmailAddress"
             android:inputType="textEmailAddress"
             style="@style/editText_style"/>
 
         <EditText
-            android:id="@+id/editText2"
+            android:id="@+id/textPassword"
             style="@style/editText_style"
-
             android:inputType="textPassword" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/loginBtn"
             style="@style/button_style"
             android:text="LOGIN"
             android:textAllCaps="false" />
         <Button
             style="@style/button_style"
-            android:id="@+id/button1"
+            android:id="@+id/registerBtn"
             android:text="REGISTER"
             android:textAllCaps="false"/>
         <TextView

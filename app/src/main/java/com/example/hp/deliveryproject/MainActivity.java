@@ -1,11 +1,16 @@
 package com.example.hp.deliveryproject;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -18,6 +23,9 @@ import Model.User;
 public class MainActivity extends AppCompatActivity {
     Button regBtn, loginBtn;
     EditText textPassword, textEmail;
+    SharedPreferences svUserName,svPassword;
+    CheckBox chkSaveData;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +34,11 @@ public class MainActivity extends AppCompatActivity {
         loginBtn = (Button) findViewById(R.id.loginBtn);
         textPassword = (EditText) findViewById((R.id.textPassword));
         textEmail = (EditText) findViewById(R.id.textEmailAddress);
+        svUserName = getSharedPreferences("MYPREFS",0);
+        svPassword = getSharedPreferences("MYPREFS2",0);
+        textEmail.setText(svUserName.getString("email",""));
+        textPassword.setText(svPassword.getString("pwrd",""));
+        chkSaveData= (CheckBox) findViewById(R.id.chkKeepLogDetails);
         regBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -38,6 +51,31 @@ public class MainActivity extends AppCompatActivity {
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
+
+                Toast loginToast = Toast.makeText(MainActivity.this,"We Are Logging you in Please Wait...!",Toast.LENGTH_SHORT);
+                loginToast.setGravity(Gravity.CENTER,0,0);
+                loginToast.show();
+
+                SharedPreferences.Editor unameEditor = svUserName.edit();
+                SharedPreferences.Editor pwrdEditor = svPassword.edit();
+                if(chkSaveData.isEnabled()==true)
+                {
+                    Log.i(""+chkSaveData.isEnabled(),""+chkSaveData.isEnabled());
+                    svUserName = getSharedPreferences("MYPREFS",0);
+                    unameEditor.putString("email",textEmail.getText().toString());
+                    svPassword = getSharedPreferences("MYPREFS2",0);
+                    pwrdEditor.putString("pwrd",textPassword.getText().toString());
+                    unameEditor.commit();
+                    pwrdEditor.commit();
+                }
+
+                else{
+                    unameEditor.clear();
+                    unameEditor.commit();
+                    pwrdEditor.clear();
+                    pwrdEditor.commit();
+                }
+
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                 DatabaseReference myRef = database.getReference("tables");
                 myRef = myRef.child("users");
@@ -48,8 +86,20 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         User user = dataSnapshot.getValue(User.class);
-                        if(textPassword.getText().toString().equals(user.getPassword()))
+                        if(textPassword.getText().toString().equals(user.getPassword())){
+                            Toast loginToast = Toast.makeText(MainActivity.this,"Log In Successful...!",Toast.LENGTH_SHORT);
+                            loginToast.setGravity(Gravity.CENTER,0,0);
+                            loginToast.show();
                             loginStatus(true);
+                        }
+
+                        else
+                        {
+                            Toast loginToast = Toast.makeText(MainActivity.this,"Looks Like Something Went Wrong!",Toast.LENGTH_SHORT);
+                            loginToast.setGravity(Gravity.CENTER,0,0);
+                            loginToast.show();
+                        }
+
                     }
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
@@ -59,6 +109,8 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+
         // Write a message to the database
 
         /*User user = new User();
@@ -83,6 +135,17 @@ public class MainActivity extends AppCompatActivity {
         });*/
         //TEST COMMIT BHAGYA
         //testing 123 kasun :D
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+
+
+
+
+
     }
 
     public void loginStatus(boolean loggedIn){

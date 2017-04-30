@@ -55,7 +55,7 @@ public class RegisterActivity extends AppCompatActivity{
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         if (dataSnapshot.child("users").hasChild(et_email.getText().toString())){
-                            et_name.setText("fuck");
+                            mySnackbar.show();
                         }else{
                 User userReg =  new User(et_name.getText().toString(),et_confirmpassword.getText().toString(),true,et_email.getText().toString(),et_phone.getText().toString());
                 FirebaseDatabase database = FirebaseDatabase.getInstance();

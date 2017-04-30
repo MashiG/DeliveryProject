@@ -34,11 +34,13 @@ public class MainActivity extends AppCompatActivity {
         loginBtn = (Button) findViewById(R.id.loginBtn);
         textPassword = (EditText) findViewById((R.id.textPassword));
         textEmail = (EditText) findViewById(R.id.textEmailAddress);
+        //Bhagya- References Regarding Sessions
         svUserName = getSharedPreferences("MYPREFS",0);
         svPassword = getSharedPreferences("MYPREFS2",0);
         textEmail.setText(svUserName.getString("email",""));
         textPassword.setText(svPassword.getString("pwrd",""));
         chkSaveData= (CheckBox) findViewById(R.id.chkKeepLogDetails);
+        //Bhagya- End of References Regarding Sessions
         regBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
                 SharedPreferences.Editor pwrdEditor = svPassword.edit();
                 if(chkSaveData.isEnabled()==true)
                 {
+                    //Bhagya- Sessions
                     Log.i(""+chkSaveData.isEnabled(),""+chkSaveData.isEnabled());
                     svUserName = getSharedPreferences("MYPREFS",0);
                     unameEditor.putString("email",textEmail.getText().toString());
@@ -67,13 +70,16 @@ public class MainActivity extends AppCompatActivity {
                     pwrdEditor.putString("pwrd",textPassword.getText().toString());
                     unameEditor.commit();
                     pwrdEditor.commit();
+                    //Bhagya- End of Sessions
                 }
 
                 else{
+                    //Bhagya- Invalidate Sessions
                     unameEditor.clear();
                     unameEditor.commit();
                     pwrdEditor.clear();
                     pwrdEditor.commit();
+                    //Bhagya- End of Invalidating Sessions
                 }
 
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -87,17 +93,21 @@ public class MainActivity extends AppCompatActivity {
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         User user = dataSnapshot.getValue(User.class);
                         if(textPassword.getText().toString().equals(user.getPassword())){
+                            //Bhagya- Login Message;
                             Toast loginToast = Toast.makeText(MainActivity.this,"Log In Successful...!",Toast.LENGTH_SHORT);
                             loginToast.setGravity(Gravity.CENTER,0,0);
                             loginToast.show();
                             loginStatus(true);
+                            //Bhagya - End of Login Message
                         }
 
                         else
                         {
+                            //Bhagya- Password Error Message;
                             Toast loginToast = Toast.makeText(MainActivity.this,"Looks Like Something Went Wrong!",Toast.LENGTH_SHORT);
                             loginToast.setGravity(Gravity.CENTER,0,0);
                             loginToast.show();
+                            //Bhagya- End of Password Error Message;
                         }
 
                     }

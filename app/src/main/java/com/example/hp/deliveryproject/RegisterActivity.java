@@ -60,6 +60,7 @@ public class RegisterActivity extends AppCompatActivity{
                             Snackbar mySnackbar = Snackbar.make(getWindow().getDecorView().findViewById(android.R.id.content), "User Already Available", Snackbar.LENGTH_SHORT);
                             mySnackbar.show();
                         }else{
+                            if (et_password.equals(et_confirmpassword)){
                 User userReg =  new User(et_name.getText().toString(),et_confirmpassword.getText().toString(),true,et_email.getText().toString(),et_phone.getText().toString());
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                 DatabaseReference myRef = database.getReference("tables");
@@ -68,6 +69,11 @@ public class RegisterActivity extends AppCompatActivity{
                 myRef = myRef.child(userReg.getEmail());
                 myRef.push().setValue(userReg);
                             finish();
+                        }
+                        else{
+                                Snackbar mySnackbar = Snackbar.make(getWindow().getDecorView().findViewById(android.R.id.content), "Please Re-Conferm Ther Password", Snackbar.LENGTH_SHORT);
+                                mySnackbar.show();
+                            }
                         }
             }
 

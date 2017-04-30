@@ -15,12 +15,13 @@ public class User {
     String name, password, email, phoneNumber, userType;
     boolean loggedIn;
 
-    public User(String name, String password, Boolean loggedIn, String email, String phoneNumber) {
+    public User(String name, String password, Boolean loggedIn, String email, String phoneNumber, String userType) {
         this.name = name;
         this.password = password;
         this.loggedIn = loggedIn;
         this.email = email;
         this.phoneNumber = phoneNumber;
+        this.userType = userType;
     }
 
     public User() {

@@ -61,7 +61,7 @@ public class RegisterActivity extends AppCompatActivity{
                             mySnackbar.show();
                         }else{
                             if (et_password.equals(et_confirmpassword)){
-                User userReg =  new User(et_name.getText().toString(),et_confirmpassword.getText().toString(),true,et_email.getText().toString(),et_phone.getText().toString());
+                User userReg =  new User(et_name.getText().toString(),et_confirmpassword.getText().toString(),true,et_email.getText().toString(),et_phone.getText().toString(), "Customer".toString());
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                 DatabaseReference myRef = database.getReference("tables");
 

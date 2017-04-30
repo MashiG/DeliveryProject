@@ -59,5 +59,16 @@
             android:textColor="#6F7A8B"
 
             />
+
+        <CheckBox
+            android:id="@+id/chkKeepLogDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:checked="true"
+            android:text="Keep Me Logged In" />
     </LinearLayout>
+
 </RelativeLayout>

@@ -18,6 +18,11 @@
         </activity>
         <activity android:name=".RegisterActivity"></activity>
         <activity android:name=".UserDashboard"></activity>
+        <activity android:name=".UserAddRequestPickup"></activity>
+        <activity android:name=".UserUpdateOrderDelivery"></activity>
+        <activity android:name=".ManagerViewPickup"></activity>
+        <activity android:name=".ManagerAssignDeliveryAgent"></activity>
+        <activity android:name=".ManagerDashboard"></activity>
     </application>
 
 </manifest>

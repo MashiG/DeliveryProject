@@ -2,6 +2,7 @@ package com.example.hp.deliveryproject;
 
 import android.os.Build;
 import android.support.annotation.RequiresApi;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -55,6 +56,8 @@ public class RegisterActivity extends AppCompatActivity{
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         if (dataSnapshot.child("users").hasChild(et_email.getText().toString())){
+                            //et_name.setText("fuck");
+                            Snackbar mySnackbar = Snackbar.make(getWindow().getDecorView().findViewById(android.R.id.content), "User Already Available", Snackbar.LENGTH_SHORT);
                             mySnackbar.show();
                         }else{
                 User userReg =  new User(et_name.getText().toString(),et_confirmpassword.getText().toString(),true,et_email.getText().toString(),et_phone.getText().toString());
@@ -64,6 +67,7 @@ public class RegisterActivity extends AppCompatActivity{
                 myRef = myRef.child("users");
                 myRef = myRef.child(userReg.getEmail());
                 myRef.push().setValue(userReg);
+                            finish();
                         }
             }
 

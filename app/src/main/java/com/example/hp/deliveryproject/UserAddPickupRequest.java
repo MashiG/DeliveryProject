@@ -7,15 +7,20 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import org.w3c.dom.Text;
 
 import java.math.BigDecimal;
+import java.util.Iterator;
 
 import Model.DeliveryDetails;
 import Model.Packages;
+import Model.User;
 
 /**
  * Created by murtaza on 4/30/17.
@@ -59,10 +64,23 @@ public class UserAddPickupRequest extends AppCompatActivity implements View.OnFo
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DeliveryDetails deliveryDetails = new DeliveryDetails("1",fromLocationText.getText().toString(),toLocationText.getText().toString(),"","murtazasmart","pending",deliveryDateText.getText().toString(),"nodeliveryagent assigned",price.toString());
+                DeliveryDetails deliveryDetails = new DeliveryDetails("2",fromLocationText.getText().toString(),toLocationText.getText().toString(),"","mekala","pending",deliveryDateText.getText().toString(),"nodeliveryagent assigned",price.toString());
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                 DatabaseReference myRef = database.getReference("tables/deliverydetails");
-                myRef.push().setValue(deliveryDetails);
+                myRef.setValue(deliveryDetails);
+                //myRef.setValue(deliveryDetails);
+                //myRef.orderByChild("userType").equalTo("Customer").addValueEventListener(new ValueEventListener() {
+                myRef.orderByKey().startAt("5").limitToFirst(1).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+
             }
         });
 
@@ -80,7 +98,31 @@ public class UserAddPickupRequest extends AppCompatActivity implements View.OnFo
             height = new BigDecimal(heightText.getText().toString());
             volume = new BigDecimal(length.multiply(width.multiply(height)).toString());
             priceDisplay.setText(volume.toString());
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference myRef = database.getReference("tables/packages");
+            myRef.orderByKey().startAt(volume.toString()).limitToFirst(1).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+
+                    for( DataSnapshot datasnapshotchild: dataSnapshot.getChildren()) {
+                        System.out.println("VOLUME "+volume.toString());
+                        System.out.println(datasnapshotchild.getValue(Packages.class).getPrice());
+                        priceDisplay.setText(datasnapshotchild.getValue(Packages.class).getPrice().toString());
+                    }
+                    //priceDisplay.setText(dataSnapshot.getValue(Packages.class).getPrice().toString());
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
 
         }
+    }
+
+    public static void printDeliveryDetails(User deliveryDetails){
+        System.out.println(deliveryDetails.getPassword());
+
     }
 }

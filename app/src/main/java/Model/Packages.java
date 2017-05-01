@@ -1,32 +1,21 @@
 package Model;
 
-import java.math.BigDecimal;
-
 /**
  * Created by murtaza on 4/29/17.
  */
 
 public class Packages {
-    String packageID;
     String weight;
-    String price, volume;
+    String volume;
+    Long price;
 
     public Packages() {
     }
 
-    public Packages(String packageID, String volume, String weight, String price) {
-        this.packageID = packageID;
+    public Packages(String volume, String weight, Long price) {
         this.weight = weight;
         this.price = price;
         this.volume = volume;
-    }
-
-    public String getPackageID() {
-        return packageID;
-    }
-
-    public void setPackageID(String packageID) {
-        this.packageID = packageID;
     }
 
     public String getWeight() {
@@ -37,11 +26,11 @@ public class Packages {
         this.weight = weight;
     }
 
-    public String getPrice() {
+    public Long getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(Long price) {
         this.price = price;
     }
 }

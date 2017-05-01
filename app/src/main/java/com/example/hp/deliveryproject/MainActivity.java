@@ -164,10 +164,24 @@ public class MainActivity extends AppCompatActivity {
 
     public void loginStatus(boolean loggedIn, String Utype){
         System.out.println("EMAIL  - "+textEmail.getText().toString());
-        if(loggedIn){
-            System.out.println("LOGGED IN "+textEmail.getText().toString());
-            Intent userDashboard = new Intent(MainActivity.this, UserDashboard.class );
-            startActivity(userDashboard);
+        if(loggedIn && !Utype.equals("")){
+            if (Utype.equals("Customer")){
+                System.out.println("LOGGED IN "+textEmail.getText().toString());
+                Intent userDashboard = new Intent(MainActivity.this, UserDashboard.class );
+                startActivity(userDashboard);
+            }
+            else if (Utype.equals("Manager")){
+                System.out.println("LOGGED IN "+textEmail.getText().toString());
+                Intent userDashboard = new Intent(MainActivity.this, ManagerDashboard.class );
+                startActivity(userDashboard);
+
+            }else if(Utype.equals("Dilivery")){
+                //System.out.println("LOGGED IN "+textEmail.getText().toString());
+                //Intent userDashboard = new Intent(MainActivity.this,  );
+                //startActivity(userDashboard);
+
+            }
+
         }
         else{
             System.out.println("ERROR LOGGIN"+textEmail.getText().toString());

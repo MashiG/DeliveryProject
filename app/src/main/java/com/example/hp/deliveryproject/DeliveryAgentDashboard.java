@@ -4,15 +4,13 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 /**
- * Created by murtaza on 4/30/17.
+ * Created by murtaza on 5/1/17.
  */
 
-public class UserAddPickupRequest extends AppCompatActivity{
+public class DeliveryAgentDashboard extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.useraddpickuprequest);
-
-
+        setContentView(R.layout.deliveryagentdashboard);
     }
 }

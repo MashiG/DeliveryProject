@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
                 myRef = myRef.child("users");
                 myRef = myRef.child(textEmail.getText().toString());
                 if(myRef == null)
-                    loginStatus(false);
+                    loginStatus(false,"");
                 myRef.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
                             Toast loginToast = Toast.makeText(MainActivity.this,"Log In Successful...!",Toast.LENGTH_SHORT);
                             loginToast.setGravity(Gravity.CENTER,0,0);
                             loginToast.show();
-                            loginStatus(true);
+                            loginStatus(true,user.getUserType().toString());
                             //Bhagya - End of Login Message
                         }
                         else if(!textPassword.getText().toString().equals(user.getPassword())){
@@ -162,7 +162,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void loginStatus(boolean loggedIn){
+    public void loginStatus(boolean loggedIn, String Utype){
         System.out.println("EMAIL  - "+textEmail.getText().toString());
         if(loggedIn){
             System.out.println("LOGGED IN "+textEmail.getText().toString());

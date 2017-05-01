@@ -1,18 +1,16 @@
 package Model;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
 /**
  * Created by murtaza on 4/29/17.
  */
 
 public class User {
     //EMAIL is the unique ID
-    String name, password, email, phoneNumber, userType;
+    String name;
+    String password;
+    String email;
+    String phoneNumber;
+    private String userType;
     boolean loggedIn;
 
     public User(String name, String password, Boolean loggedIn, String email, String phoneNumber, String userType) {
@@ -21,7 +19,7 @@ public class User {
         this.loggedIn = loggedIn;
         this.email = email;
         this.phoneNumber = phoneNumber;
-        this.userType = userType;
+        this.setUserType(userType);
     }
 
     public User() {
@@ -71,4 +69,11 @@ public class User {
         return false;
     }
 
+    public String getUserType() {
+        return userType;
+    }
+
+    public void setUserType(String userType) {
+        this.userType = userType;
+    }
 }

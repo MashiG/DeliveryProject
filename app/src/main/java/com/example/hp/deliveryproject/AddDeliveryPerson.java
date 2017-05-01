@@ -13,6 +13,6 @@ public class AddDeliveryPerson extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.managerassigndeliveryagent);
+        setContentView(R.layout.manageradddeliveryperson);
     }
 }

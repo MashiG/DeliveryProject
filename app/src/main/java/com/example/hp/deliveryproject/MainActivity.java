@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
                 
                 myRef = myRef.child(textEmail.getText().toString());
                 Log.i("MEkala",myRef.toString());
-                //if(myRef == null)
+                if(myRef == null)
                     loginStatus(false,"");
                 myRef.addValueEventListener(new ValueEventListener() {
                     @Override
@@ -173,7 +173,7 @@ public class MainActivity extends AppCompatActivity {
         if(loggedIn && !Utype.equals("")){
             if (Utype.equals("Customer")){
                 System.out.println("LOGGED IN "+textEmail.getText().toString());
-                Intent userDashboard = new Intent(MainActivity.this, UserDashboard.class );
+                Intent userDashboard = new Intent(MainActivity.this, UserDashboard.class );//Intent userDashboard = new Intent(MainActivity.this, UserDashboard.class );
                 startActivity(userDashboard);
             }
             else if (Utype.equals("Manager")){

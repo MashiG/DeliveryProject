@@ -27,13 +27,17 @@ public class UserDashboard extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent orderRequestsViewIntent = new Intent(UserDashboard.this, UserAddPickupRequest.class);
+                startActivity(orderRequestsViewIntent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
 
         addPickupRequest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent userAddPickupRequest
+                Intent userAddPickupRequestIntent = new Intent(UserDashboard.this, UserAddPickupRequest.class);
+                startActivity(userAddPickupRequestIntent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
 

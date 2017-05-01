@@ -2,6 +2,7 @@ package com.example.hp.deliveryproject;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -100,7 +101,10 @@ public class MainActivity extends AppCompatActivity {
                             loginStatus(true);
                             //Bhagya - End of Login Message
                         }
-
+                        else if(!textPassword.getText().toString().equals(user.getPassword())){
+                            Snackbar mySnackbar = Snackbar.make(getWindow().getDecorView().findViewById(android.R.id.content), "Invalid Username or Password", Snackbar.LENGTH_LONG);
+                            mySnackbar.show();
+                        }
                         else
                         {
                             //Bhagya- Password Error Message;

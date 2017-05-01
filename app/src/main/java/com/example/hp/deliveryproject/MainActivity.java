@@ -87,13 +87,14 @@ public class MainActivity extends AppCompatActivity {
                 DatabaseReference myRef = database.getReference("tables");
                 myRef = myRef.child("users");
                 myRef = myRef.child(textEmail.getText().toString());
+                Log.i("MEkala",myRef.toString());
                 if(myRef == null)
                     loginStatus(false,"");
                 myRef.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         User user = dataSnapshot.getValue(User.class);
-                        if(textPassword.getText().toString().equals(user.getPassword())){
+                        if((textEmail.getText().toString().equals(user.getEmail()))&&(textPassword.getText().toString().equals(user.getPassword()))){
                             //Bhagya- Login Message;
                             Toast loginToast = Toast.makeText(MainActivity.this,"Log In Successful...!",Toast.LENGTH_SHORT);
                             loginToast.setGravity(Gravity.CENTER,0,0);
@@ -101,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
                             loginStatus(true,user.getUserType().toString());
                             //Bhagya - End of Login Message
                         }
-                        else if(!textPassword.getText().toString().equals(user.getPassword())){
+                        else if((!textPassword.getText().toString().equals(user.getPassword()))|| (!textEmail.getText().toString().equals(user.getEmail()))){
                             Snackbar mySnackbar = Snackbar.make(getWindow().getDecorView().findViewById(android.R.id.content), "Invalid Username or Password", Snackbar.LENGTH_LONG);
                             mySnackbar.show();
                         }
@@ -181,10 +182,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(userDashboard);
 
             }
-            else{
-                System.out.println("LOGGED IN "+textEmail.getText().toString());
-                Intent userDashboard = new Intent(MainActivity.this, MainActivity.class);
-                startActivity(userDashboard);
+            else {
+                //else{
+                    //System.out.println("LOGGED IN "+textEmail.getText().toString());
+                    //Intent userDashboard = new Intent(MainActivity.this, MainActivity.class);
+                  //  startActivity(userDashboard);
+
+                System.out.println("ERROR LOGGIN"+textEmail.getText().toString());
             }
 
         }

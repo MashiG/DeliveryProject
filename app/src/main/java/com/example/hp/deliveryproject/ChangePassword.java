@@ -16,6 +16,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import Model.User;
+
 /**
  * Created by Bhagya Rathnayake on 5/1/2017.
  */
@@ -33,27 +35,44 @@ public class ChangePassword extends AppCompatActivity {
         setContentView(R.layout.changepassword);
         submit_button= (Button) findViewById(R.id.buttonchangepassword);
         old_password=(EditText) findViewById(R.id.editText9);
-        //currentUser=svUserName.
-        //old_password.setText(svUserName.toString());
         new_password=(EditText) findViewById(R.id.editText11);
         conf_new_password=(EditText) findViewById(R.id.editText13);
         submit_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 svUserName = getSharedPreferences("MYPREFS",0);
-                //currentUser=svUserName.getString("email","");
+                currentUser=svUserName.getString("email","");
+                //new_password.setText(currentUser);
+
                 //overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
                 FirebaseDatabase chkDB= FirebaseDatabase.getInstance();
-                DatabaseReference chkref=chkDB.getReference("table");
+                DatabaseReference chkref=chkDB.getReference("tables");
                 //chkref=chkref.child("users");
                 chkref.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        Snackbar mySnackbar = Snackbar.make(getWindow().getDecorView().findViewById(android.R.id.content), svUserName.toString(), Snackbar.LENGTH_LONG);
-                        mySnackbar.show();
-                        //if (dataSnapshot.child("users").hasChild(svUserName.toString())){
 
-                        //}
+                        if (dataSnapshot.child("users").hasChild(currentUser)){
+
+                                FirebaseDatabase DBupdate= FirebaseDatabase.getInstance();
+                                DatabaseReference DBupdatRef= DBupdate.getReference("tables");
+                            DBupdatRef= DBupdatRef.child("users");
+                            DBupdatRef= DBupdatRef.child(currentUser);
+                            DBupdatRef= DBupdatRef.child("password");
+                            User UserUpdatePassword= new User();
+                            //UserUpdatePassword.setPassword("xx");
+                             DBupdatRef.setValue(new_password.getText().toString());//(UserUpdatePassword);
+                            Snackbar mySnackbar = Snackbar.make(getWindow().getDecorView().findViewById(android.R.id.content), "Update Successfully", Snackbar.LENGTH_LONG);
+                            mySnackbar.show();
+                            finish();
+
+
+                            //Snackbar mySnackbar1 = Snackbar.make(getWindow().getDecorView().findViewById(android.R.id.content), currentUser+" done", Snackbar.LENGTH_LONG);
+                            //mySnackbar1.show();
+
+                            //UserUpdatePassword.setPassword(new_password.getText().toString());
+
+                        }
                     }
 
                     @Override

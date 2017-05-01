@@ -22,6 +22,7 @@ public class User {
         this.setUserType(userType);
     }
 
+
     public User() {
     }
 

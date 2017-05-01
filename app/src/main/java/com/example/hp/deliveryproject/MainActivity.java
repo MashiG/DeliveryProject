@@ -165,7 +165,7 @@ public class MainActivity extends AppCompatActivity {
     public void loginStatus(boolean loggedIn, String Utype){
         System.out.println("EMAIL  - "+textEmail.getText().toString());
         if(loggedIn && !Utype.equals("")){
-            if (Utype.equals("Customer")){
+            if (Utype.equals("Customer")){ 
                 System.out.println("LOGGED IN "+textEmail.getText().toString());
                 Intent userDashboard = new Intent(MainActivity.this, UserDashboard.class );
                 startActivity(userDashboard);

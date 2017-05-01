@@ -23,6 +23,7 @@
         <activity android:name=".ManagerViewPickup"></activity>
         <activity android:name=".ManagerAssignDeliveryAgent"></activity>
         <activity android:name=".ManagerDashboard"></activity>
+        <activity android:name=".DeliveryAgentDashboard"></activity>
     </application>
 
 </manifest>

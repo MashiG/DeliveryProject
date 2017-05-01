@@ -1,24 +1,22 @@
 package Model;
 
-import java.math.BigDecimal;
-
 /**
  * Created by murtaza on 4/29/17.
  */
 
 public class DeliveryDetails {
-    String deliveryID, fromLocation, toLocation, packageID, userID, status, DeliveryDate, DeliveryAgentID;
-    BigDecimal price;
+    String deliveryID, fromLocation, toLocation, packageID, userID, status, deliveryDate, deliveryAgentID;
+    String price;
 
-    public DeliveryDetails(String deliveryID, String fromLocation, String toLocation, String packageID, String userID, String status, String deliveryDate, String deliveryAgentID, BigDecimal price) {
+    public DeliveryDetails(String deliveryID, String fromLocation, String toLocation, String packageID, String userID, String status, String deliveryDate, String deliveryAgentID, String price) {
         this.deliveryID = deliveryID;
         this.fromLocation = fromLocation;
         this.toLocation = toLocation;
         this.packageID = packageID;
         this.userID = userID;
         this.status = status;
-        DeliveryDate = deliveryDate;
-        DeliveryAgentID = deliveryAgentID;
+        this.deliveryDate = deliveryDate;
+        this.deliveryAgentID = deliveryAgentID;
         this.price = price;
     }
 
@@ -74,26 +72,26 @@ public class DeliveryDetails {
     }
 
     public String getDeliveryDate() {
-        return DeliveryDate;
+        return deliveryDate;
     }
 
     public void setDeliveryDate(String deliveryDate) {
-        DeliveryDate = deliveryDate;
+        this.deliveryDate = deliveryDate;
     }
 
     public String getDeliveryAgentID() {
-        return DeliveryAgentID;
+        return deliveryAgentID;
     }
 
     public void setDeliveryAgentID(String deliveryAgentID) {
-        DeliveryAgentID = deliveryAgentID;
+        this.deliveryAgentID = deliveryAgentID;
     }
 
-    public BigDecimal getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 }

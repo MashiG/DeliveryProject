@@ -7,19 +7,18 @@ import java.math.BigDecimal;
  */
 
 public class Packages {
-    String packageID, width, height, length, weight;
-    BigDecimal price;
+    String packageID;
+    String weight;
+    String price, volume;
 
     public Packages() {
     }
 
-    public Packages(String packageID, String width, String height, String length, String weight, BigDecimal price) {
+    public Packages(String packageID, String volume, String weight, String price) {
         this.packageID = packageID;
-        this.width = width;
-        this.height = height;
-        this.length = length;
         this.weight = weight;
         this.price = price;
+        this.volume = volume;
     }
 
     public String getPackageID() {
@@ -30,30 +29,6 @@ public class Packages {
         this.packageID = packageID;
     }
 
-    public String getWidth() {
-        return width;
-    }
-
-    public void setWidth(String width) {
-        this.width = width;
-    }
-
-    public String getHeight() {
-        return height;
-    }
-
-    public void setHeight(String height) {
-        this.height = height;
-    }
-
-    public String getLength() {
-        return length;
-    }
-
-    public void setLength(String length) {
-        this.length = length;
-    }
-
     public String getWeight() {
         return weight;
     }
@@ -62,11 +37,11 @@ public class Packages {
         this.weight = weight;
     }
 
-    public BigDecimal getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 }

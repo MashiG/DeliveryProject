@@ -42,7 +42,7 @@
             android:text="Recipient Name" />
 
         <EditText
-            android:id="@+id/recipientname"
+            android:id="@+id/userAddPickupRequestRecipientName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignEnd="@+id/editText24"
@@ -63,10 +63,10 @@
             android:background="@android:color/transparent"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Date" />
+            android:text="Delivery Date" />
 
         <EditText
-            android:id="@+id/date"
+            android:id="@+id/userAddPickupRequestDeliveryDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignEnd="@+id/recipientname"
@@ -87,10 +87,10 @@
             android:background="@android:color/transparent"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="From" />
+            android:text="From Location" />
 
         <EditText
-            android:id="@+id/from"
+            android:id="@+id/userAddPickupRequestFromLocation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignEnd="@+id/date"
@@ -111,10 +111,10 @@
             android:background="@android:color/transparent"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="To" />
+            android:text="To Location" />
 
         <EditText
-            android:id="@+id/to"
+            android:id="@+id/userAddPickupRequestToLocation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignEnd="@+id/from"
@@ -169,30 +169,33 @@
             android:layout_gravity="center">
 
             <EditText
-                android:id="@+id/length"
+                android:id="@+id/userAddPickupRequestLength"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@+id/editText33"
                 android:layout_alignStart="@+id/editText33"
                 android:layout_below="@+id/editText33"
-                android:inputType="textPersonName" />
+                android:inputType="numberDecimal"
+                android:text="1"/>
 
             <EditText
-                android:id="@+id/width"
+                android:id="@+id/userAddPickupRequestWidth"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/editText33"
                 android:layout_centerHorizontal="true"
-                android:inputType="textPersonName" />
+                android:inputType="numberDecimal"
+                android:text="1"/>
 
             <EditText
-                android:id="@+id/height"
+                android:id="@+id/userAddPickupRequestHeight"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_alignEnd="@+id/to"
                 android:layout_alignRight="@+id/to"
                 android:layout_below="@+id/editText34"
-                android:inputType="textPersonName" />
+                android:inputType="numberDecimal"
+                android:text="1"/>
         </LinearLayout>
 
 
@@ -208,7 +211,7 @@
             android:text="Phone" />
 
         <EditText
-            android:id="@+id/phone"
+            android:id="@+id/userAddPickupRequestPhone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignEnd="@+id/height"
@@ -217,9 +220,24 @@
             android:layout_alignStart="@+id/editText41"
             android:inputType="textPersonName" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Price"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.00"
+                android:id="@+id/userAddPickupRequestPrice"/>
+        </LinearLayout>
+
         <Button
 
-            android:id="@+id/buttonrecover"
+            android:id="@+id/userAddPickupRequestSubmit"
             style="@style/button_style"
             android:layout_width="150dp"
             android:layout_below="@+id/phone"

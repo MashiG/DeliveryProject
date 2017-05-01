@@ -33,7 +33,7 @@ public class ChangePassword extends AppCompatActivity {
         setContentView(R.layout.changepassword);
         submit_button= (Button) findViewById(R.id.buttonchangepassword);
         old_password=(EditText) findViewById(R.id.editText9);
-        currentUser=svUserName.
+        //currentUser=svUserName.
         //old_password.setText(svUserName.toString());
         new_password=(EditText) findViewById(R.id.editText11);
         conf_new_password=(EditText) findViewById(R.id.editText13);

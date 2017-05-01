@@ -20,7 +20,7 @@ public class UserDashboard extends AppCompatActivity {
         //Access images from layout to implement action listeners
         viewImage = (ImageButton) findViewById(R.id.userdashboardimgview);
         accountImage = (ImageButton) findViewById(R.id.userdashboardimgaccount);
-        changepasswordImage = (ImageButton) findViewById(R.id.userdashboardimgchangepassword);
+        changepasswordImage = (ImageButton) findViewById(R.id.btnChangeUserPassword);
         addPickupRequest = (ImageButton) findViewById(R.id.userdashboardimgaddpickuprequests);
 
         viewImage.setOnClickListener(new View.OnClickListener() {
@@ -42,6 +42,14 @@ public class UserDashboard extends AppCompatActivity {
         });
 
 
+        changepasswordImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent changePassword = new Intent(UserDashboard.this,ChangePassword.class);
+                startActivity(changePassword);
+                overridePendingTransition(R.anim.slide_in_right,R.anim.slide_out_left);
+            }
+        });
 
     }
 }

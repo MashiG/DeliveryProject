@@ -37,12 +37,21 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="106dp"
+        <EditText
+            android:id="@+id/editText10"
+            android:layout_width="130dp"
             android:layout_height="wrap_content"
+            android:layout_above="@+id/imageButton8"
+            android:layout_alignLeft="@+id/editText27"
+            android:layout_alignStart="@+id/editText27"
+            android:layout_marginBottom="19dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginStart="18dp"
+            android:background="@android:color/transparent"
+            android:ems="10"
+            android:inputType="textPersonName"
             android:text="User Name"
-            android:textAppearance="@style/TextAppearance.AppCompat.Button" />
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/editText"
@@ -55,12 +64,21 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="87dp"
+        <EditText
+            android:id="@+id/editText18"
+            android:layout_width="132dp"
             android:layout_height="wrap_content"
+            android:layout_above="@+id/imageButton8"
+            android:layout_alignLeft="@+id/editText27"
+            android:layout_alignStart="@+id/editText27"
+            android:layout_marginBottom="19dp"
+            android:layout_marginLeft="18dp"
+            android:layout_marginStart="18dp"
+            android:background="@android:color/transparent"
+            android:ems="10"
+            android:inputType="textPersonName"
             android:text="Password"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/editText2"

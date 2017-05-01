@@ -181,7 +181,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent managerDashboard = new Intent(MainActivity.this, ManagerDashboard.class );
                 startActivity(managerDashboard);
 
-            }else if(Utype.equals("Dilivery")){
+            }else if(Utype.equals("Delivery")){
                 System.out.println("LOGGED IN "+textEmail.getText().toString());
                 Intent deliveryAgentDashboard = new Intent(MainActivity.this, DeliveryAgentDashboard.class);
                 startActivity(deliveryAgentDashboard);

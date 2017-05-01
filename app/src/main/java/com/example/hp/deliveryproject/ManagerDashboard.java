@@ -11,18 +11,12 @@ import android.widget.Button;
  */
 
 public class ManagerDashboard extends AppCompatActivity {
-    Button btnManageDelAgent;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.managerdashboard);
 
-        btnManageDelAgent.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent manageDelAgent = new Intent(ManagerDashboard.this,AddDeliveryPerson.class);
-                startActivity(manageDelAgent);
-            }
-        });
+
     }
 }

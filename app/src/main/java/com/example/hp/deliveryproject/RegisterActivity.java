@@ -66,10 +66,11 @@ public class RegisterActivity extends AppCompatActivity{
                 DatabaseReference myRef = database.getReference("tables");
 
                 myRef = myRef.child("users");
-                myRef = myRef.child(userReg.getEmail());
-                myRef.push().setValue(userReg);
+                myRef = myRef.child(userReg.getEmail().toString());
+                myRef.setValue(userReg);
                             finish();//mekala
                         }
+
                         else{
                                 Snackbar mySnackbar = Snackbar.make(getWindow().getDecorView().findViewById(android.R.id.content), "Please Re-Conferm Ther Password", Snackbar.LENGTH_SHORT);
                                 mySnackbar.show();

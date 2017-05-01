@@ -1,123 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
+<ScrollView xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/rectangle"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="30dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    tools:context="com.example.hp.deliveryproject.MainActivity">
-
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@mipmap/ic_settings"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/imageButton4"
-
-
-        />
-
-    <LinearLayout
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/activity_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center"    android:paddingLeft="48dp"
-        android:paddingRight="48dp"
-        android:layout_marginTop="30dp"
-        android:layout_below="@+id/editText31"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:background="@drawable/rectangle"
+        android:paddingBottom="30dp"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="20dp"
+        tools:context="com.example.hp.deliveryproject.RegisterActivity">
 
         <TextView
-            android:id="@+id/editText10"
-            android:layout_width="130dp"
+
+            android:id="@+id/register"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/imageButton8"
-            android:layout_alignLeft="@+id/editText27"
-            android:layout_alignStart="@+id/editText27"
-            android:layout_marginBottom="19dp"
-            android:layout_marginLeft="18dp"
-            android:layout_marginStart="18dp"
-            android:background="@android:color/transparent"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="User Name"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/editText"
+            android:gravity="center"
+            android:shadowColor="#fdfdfe"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
+            android:text="@string/register"
+            android:textColor="#6F7A8B"
 
 
-            style="@style/editText_style"
-            android:inputType="textEmailAddress"
-            android:textColorLink="@android:color/background_dark"
-        android:layout_below="@+id/editText19"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-        <TextView
-            android:id="@+id/editText18"
-            android:layout_width="132dp"
+            android:textSize="25dp"
+            tools:text="Add Delivery Agent" />
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/imageButton8"
-            android:layout_alignLeft="@+id/editText27"
-            android:layout_alignStart="@+id/editText27"
-            android:layout_marginBottom="19dp"
-            android:layout_marginLeft="18dp"
-            android:layout_marginStart="18dp"
-            android:background="@android:color/transparent"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Password"
-            android:textStyle="bold" />
+            android:layout_marginTop="30dp"
+            android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/editText2"
-            style="@style/editText_style"
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="#0C378C">
 
-            android:inputType="textPassword"
-            android:layout_above="@+id/button"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginBottom="55dp" />
+                <EditText
+                    android:id="@+id/name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:hint="Name"
+                    android:inputType="textPersonName"
+                    android:textColorHighlight="@android:color/darker_gray"
+                    android:textColorHint="@android:color/darker_gray" />
+            </android.support.design.widget.TextInputLayout>
 
-        <Button
-            android:id="@+id/button"
-            style="@style/button_style"
-            android:layout_width="100dp"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="#0C378C">
 
-            android:layout_marginBottom="13dp"
-            android:text="Add"
-            android:textAllCaps="false"
-            android:layout_height="wrap_content" />
+                <EditText
+                    android:id="@+id/Email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:hint="Email"
+                    android:inputType="textPersonName"
+                    android:textColor="#6F7A8B"
 
-    </LinearLayout>
+                    />
+            </android.support.design.widget.TextInputLayout>
 
-    <TextView
-        android:id="@+id/editText31"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/editText"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/editText"
-        android:layout_marginLeft="15dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="43dp"
-        android:background="@android:color/transparent"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Add Delivery Person"
-        android:textSize="24sp" />
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="#0C378C">
 
-</RelativeLayout>
+                <EditText
+                    android:id="@+id/Password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:hint="Password"
+                    android:inputType="textPassword"
+                    android:textColor="#6F7A8B"
+
+                    />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="#0C378C">
+
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="#0C378C">
+
+                <EditText
+                    android:id="@+id/phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:hint="Phone"
+                    android:inputType="phone"
+                    android:textColor="#6F7A8B"
+                    android:textColorHint="#6F7A8B"
+
+                    />
+            </android.support.design.widget.TextInputLayout>
+            <Button
+                style="@style/button_style"
+                android:id="@+id/registbtn"
+                android:text="REGISTER"
+                android:textAllCaps="false"
+                />
+        </LinearLayout>
+
+    </RelativeLayout>
+</ScrollView>

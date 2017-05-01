@@ -68,7 +68,7 @@ public class RegisterActivity extends AppCompatActivity{
                 myRef = myRef.child("users");
                 myRef = myRef.child(userReg.getEmail());
                 myRef.push().setValue(userReg);
-                            finish();
+                            finish();//mekala
                         }
                         else{
                                 Snackbar mySnackbar = Snackbar.make(getWindow().getDecorView().findViewById(android.R.id.content), "Please Re-Conferm Ther Password", Snackbar.LENGTH_SHORT);

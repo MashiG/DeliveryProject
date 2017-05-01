@@ -24,7 +24,7 @@ public class ManagerDashboard extends AppCompatActivity {
         btnManageDelAgent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent manageDelAgent = new Intent(ManagerDashboard.this,AddDeliveryPerson.class);
+                Intent manageDelAgent = new Intent(ManagerDashboard.this,ManagerManagedDeliveryAgentActivity.class);
                 startActivity(manageDelAgent);
             }
         });

@@ -178,13 +178,13 @@ public class MainActivity extends AppCompatActivity {
             }
             else if (Utype.equals("Manager")){
                 System.out.println("LOGGED IN "+textEmail.getText().toString());
-                Intent userDashboard = new Intent(MainActivity.this, ManagerDashboard.class );
-                startActivity(userDashboard);
+                Intent managerDashboard = new Intent(MainActivity.this, ManagerDashboard.class );
+                startActivity(managerDashboard);
 
             }else if(Utype.equals("Dilivery")){
                 System.out.println("LOGGED IN "+textEmail.getText().toString());
-                Intent userDashboard = new Intent(MainActivity.this, DeliveryAgentDashboard.class);
-                startActivity(userDashboard);
+                Intent deliveryAgentDashboard = new Intent(MainActivity.this, DeliveryAgentDashboard.class);
+                startActivity(deliveryAgentDashboard);
 
             }
             else {

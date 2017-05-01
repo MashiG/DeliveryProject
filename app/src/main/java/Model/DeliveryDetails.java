@@ -7,13 +7,13 @@ import java.math.BigDecimal;
  */
 
 public class DeliveryDetails {
-    String deliveryID, from, to, packageID, userID, status, DeliveryDate, DeliveryAgentID;
+    String deliveryID, fromLocation, toLocation, packageID, userID, status, DeliveryDate, DeliveryAgentID;
     BigDecimal price;
 
-    public DeliveryDetails(String deliveryID, String from, String to, String packageID, String userID, String status, String deliveryDate, String deliveryAgentID, BigDecimal price) {
+    public DeliveryDetails(String deliveryID, String fromLocation, String toLocation, String packageID, String userID, String status, String deliveryDate, String deliveryAgentID, BigDecimal price) {
         this.deliveryID = deliveryID;
-        this.from = from;
-        this.to = to;
+        this.fromLocation = fromLocation;
+        this.toLocation = toLocation;
         this.packageID = packageID;
         this.userID = userID;
         this.status = status;
@@ -33,20 +33,20 @@ public class DeliveryDetails {
         this.deliveryID = deliveryID;
     }
 
-    public String getFrom() {
-        return from;
+    public String getFromLocation() {
+        return fromLocation;
     }
 
-    public void setFrom(String from) {
-        this.from = from;
+    public void setFromLocation(String fromLocation) {
+        this.fromLocation = fromLocation;
     }
 
-    public String getTo() {
-        return to;
+    public String getToLocation() {
+        return toLocation;
     }
 
-    public void setTo(String to) {
-        this.to = to;
+    public void setToLocation(String toLocation) {
+        this.toLocation = toLocation;
     }
 
     public String getPackageID() {

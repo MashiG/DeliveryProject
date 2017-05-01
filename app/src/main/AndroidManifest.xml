@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UserAddPickupRequest">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -18,7 +18,7 @@
         </activity>
         <activity android:name=".RegisterActivity"></activity>
         <activity android:name=".UserDashboard"></activity>
-        <!--<activity android:name=".UserAddPickupRequest"></activity>-->
+        <activity android:name=".UserAddPickupRequest"></activity>
         <activity android:name=".UserUpdateOrderDelivery"></activity>
         <activity android:name=".ManagerViewPickup"></activity>
         <activity android:name=".ManagerAssignDeliveryAgent"></activity>

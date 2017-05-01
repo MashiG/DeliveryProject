@@ -86,15 +86,16 @@ public class MainActivity extends AppCompatActivity {
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                 DatabaseReference myRef = database.getReference("tables");
                 myRef = myRef.child("users");
+                
                 myRef = myRef.child(textEmail.getText().toString());
                 Log.i("MEkala",myRef.toString());
-                if(myRef == null)
+                //if(myRef == null)
                     loginStatus(false,"");
                 myRef.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         User user = dataSnapshot.getValue(User.class);
-                        if((textEmail.getText().toString().equals(user.getEmail()))&&(textPassword.getText().toString().equals(user.getPassword()))){
+                        if((textPassword.getText().toString().equals(user.getPassword()))){
                             //Bhagya- Login Message;
                             Toast loginToast = Toast.makeText(MainActivity.this,"Log In Successful...!",Toast.LENGTH_SHORT);
                             loginToast.setGravity(Gravity.CENTER,0,0);

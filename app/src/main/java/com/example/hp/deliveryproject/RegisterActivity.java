@@ -60,7 +60,7 @@ public class RegisterActivity extends AppCompatActivity{
                             Snackbar mySnackbar = Snackbar.make(getWindow().getDecorView().findViewById(android.R.id.content), "User Already Available", Snackbar.LENGTH_SHORT);
                             mySnackbar.show();
                         }else{
-                            if (et_password.equals(et_confirmpassword)){
+                            if (et_password.getText().toString().equals(et_confirmpassword.getText().toString())){
                 User userReg =  new User(et_name.getText().toString(),et_confirmpassword.getText().toString(),true,et_email.getText().toString(),et_phone.getText().toString(), "Customer".toString());
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                 DatabaseReference myRef = database.getReference("tables");

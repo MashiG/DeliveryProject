@@ -7,7 +7,7 @@
     android:background="@drawable/rectangle"
     tools:context="com.example.hp.deliveryproject.ManagerDashboard">
 
-    <EditText
+    <TextView
         android:id="@+id/editText25"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -19,12 +19,12 @@
         android:inputType="textPersonName"
         android:text="Welcome Manager"
         android:textSize="24sp"
-
+        android:textAlignment="center"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <EditText
+    <TextView
         android:id="@+id/editText26"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -38,9 +38,10 @@
         android:layout_alignLeft="@+id/editText27"
         android:layout_alignStart="@+id/editText27"
         android:layout_marginLeft="18dp"
-        android:layout_marginStart="18dp" />
+        android:layout_marginStart="18dp"
+        android:textAlignment="center"/>
 
-    <EditText
+    <TextView
         android:id="@+id/editText27"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -52,9 +53,10 @@
         android:layout_marginBottom="11dp"
         android:layout_marginLeft="18dp"
         android:layout_marginStart="18dp"
-        android:layout_above="@+id/imageButton7"
+        android:layout_above="@+id/btnManageDelAgent"
         android:layout_alignLeft="@+id/editText28"
-        android:layout_alignStart="@+id/editText28" />
+        android:layout_alignStart="@+id/editText28"
+        android:textAlignment="center"/>
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -69,11 +71,11 @@
     android:layout_height="wrap_content"
     android:background="@mipmap/ic_changepassword"
     android:layout_alignBottom="@+id/editText27"
-    android:layout_alignLeft="@+id/imageButton7"
-    android:layout_alignStart="@+id/imageButton7"
+    android:layout_alignLeft="@+id/btnManageDelAgent"
+    android:layout_alignStart="@+id/btnManageDelAgent"
     android:layout_marginBottom="28dp"
     android:id="@+id/imageButton8" />
-    <EditText
+    <TextView
         android:id="@+id/editText28"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -91,7 +93,7 @@
         android:layout_height="wrap_content"
         android:background="@mipmap/ic_manageaccount"
         android:layout_marginBottom="14dp"
-        android:id="@+id/imageButton7"
+        android:id="@+id/btnManageDelAgent"
         android:layout_above="@+id/editText28"
         android:layout_centerHorizontal="true" />
     <Button
@@ -102,8 +104,8 @@
         android:layout_width="150dp"
         style="@style/button_style"
         android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/imageButton7"
-        android:layout_toEndOf="@+id/imageButton7"
+        android:layout_toRightOf="@+id/btnManageDelAgent"
+        android:layout_toEndOf="@+id/btnManageDelAgent"
         android:layout_marginLeft="10dp"
         android:layout_marginStart="10dp"
         android:layout_marginBottom="24dp"

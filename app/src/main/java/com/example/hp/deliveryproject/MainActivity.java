@@ -24,8 +24,9 @@ import Model.User;
 public class MainActivity extends AppCompatActivity {
     Button regBtn, loginBtn;
     EditText textPassword, textEmail;
-    SharedPreferences svUserName,svPassword;
+    SharedPreferences svUserName,svPassword,svUserType;
     CheckBox chkSaveData;
+    String textUserType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +39,10 @@ public class MainActivity extends AppCompatActivity {
         //Bhagya- References Regarding Sessions
         svUserName = getSharedPreferences("MYPREFS",0);
         svPassword = getSharedPreferences("MYPREFS2",0);
+        svUserType = getSharedPreferences("MYPREFS3",0);
         textEmail.setText(svUserName.getString("email",""));
         textPassword.setText(svPassword.getString("pwrd",""));
+        textUserType="HEY THERE I'M A NORMAL";
         chkSaveData= (CheckBox) findViewById(R.id.chkKeepLogDetails);
         //Bhagya- End of References Regarding Sessions
         regBtn.setOnClickListener(new View.OnClickListener() {
@@ -61,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
                 SharedPreferences.Editor unameEditor = svUserName.edit();
                 SharedPreferences.Editor pwrdEditor = svPassword.edit();
+                SharedPreferences.Editor uTypeEditor = svUserType.edit();
                 if(chkSaveData.isEnabled()==true)
                 {
                     //Bhagya- Sessions
@@ -69,8 +73,13 @@ public class MainActivity extends AppCompatActivity {
                     unameEditor.putString("email",textEmail.getText().toString());
                     svPassword = getSharedPreferences("MYPREFS2",0);
                     pwrdEditor.putString("pwrd",textPassword.getText().toString());
+                    svUserType = getSharedPreferences("MYPREFS3",0);
+                    uTypeEditor.putString("uType",textUserType);
+
                     unameEditor.commit();
                     pwrdEditor.commit();
+                    uTypeEditor.commit();
+                    Log.i("USER TYPE",textUserType);
                     //Bhagya- End of Sessions
                 }
 
@@ -156,11 +165,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-
-
-
-
-
 
     }
 

@@ -18,7 +18,7 @@
         </activity>
         <activity android:name=".RegisterActivity"></activity>
         <activity android:name=".UserDashboard"></activity>
-        <activity android:name=".UserAddRequestPickup"></activity>
+        <activity android:name=".UserAddPickupRequest"></activity>
         <activity android:name=".UserUpdateOrderDelivery"></activity>
         <activity android:name=".ManagerViewPickup"></activity>
         <activity android:name=".ManagerAssignDeliveryAgent"></activity>

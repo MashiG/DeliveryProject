@@ -11,7 +11,7 @@ import android.widget.ImageButton;
  */
 
 public class UserDashboard extends AppCompatActivity {
-    ImageButton viewImage, accountImage, changepasswordImage;
+    ImageButton viewImage, accountImage, changepasswordImage, addPickupRequest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,13 +21,23 @@ public class UserDashboard extends AppCompatActivity {
         viewImage = (ImageButton) findViewById(R.id.userdashboardimgview);
         accountImage = (ImageButton) findViewById(R.id.userdashboardimgaccount);
         changepasswordImage = (ImageButton) findViewById(R.id.userdashboardimgchangepassword);
+        addPickupRequest = (ImageButton) findViewById(R.id.userdashboardimgaddpickuprequests);
 
         viewImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent
+                Intent orderRequestsViewIntent = new Intent(UserDashboard.this, UserAddPickupRequest.class);
             }
         });
+
+        addPickupRequest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Intent userAddPickupRequest
+            }
+        });
+
+
 
     }
 }

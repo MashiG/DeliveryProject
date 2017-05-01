@@ -41,7 +41,7 @@ public class AddDeliveryPerson extends AppCompatActivity {
                 et_phone = (EditText) findViewById(R.id.phone);
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                 DatabaseReference rootRef =database.getReference("tables");
-                rootRef.addListenerForSingleValueEvent(new ValueEventListener() { 
+                rootRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         if (dataSnapshot.child("users").hasChild(et_email.getText().toString())){

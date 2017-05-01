@@ -12,6 +12,8 @@
     android:paddingTop="30dp"
 
     tools:context="com.example.hp.deliveryproject.MainActivity">
+
+
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -24,22 +26,25 @@
 
         />
 
-    <EditText
-        android:id="@+id/editText19"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Username"
-        android:background="@android:color/transparent"
-        android:layout_marginTop="40dp"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"    android:paddingLeft="48dp"
+        android:paddingRight="48dp"
+        android:layout_marginTop="30dp"
         android:layout_below="@+id/editText31"
-        android:layout_alignLeft="@+id/editText31"
-        android:layout_alignStart="@+id/editText31"
-        android:layout_marginLeft="42dp"
-        android:layout_marginStart="42dp" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
-    <EditText
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="106dp"
+            android:layout_height="wrap_content"
+            android:text="User Name"
+            android:textAppearance="@style/TextAppearance.AppCompat.Button" />
+
+        <EditText
             android:id="@+id/editText"
 
 
@@ -50,20 +55,14 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <EditText
-        android:id="@+id/editText29"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Password"
-        android:background="@android:color/transparent"
-        android:layout_marginBottom="11dp"
-        android:layout_above="@+id/editText2"
-        android:layout_alignLeft="@+id/editText19"
-        android:layout_alignStart="@+id/editText19" />
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="87dp"
+            android:layout_height="wrap_content"
+            android:text="Password"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
-    <EditText
+        <EditText
             android:id="@+id/editText2"
             style="@style/editText_style"
 
@@ -74,30 +73,33 @@
             android:layout_marginBottom="55dp" />
 
         <Button
-            android:layout_width="100dp"
-            style="@style/button_style"
             android:id="@+id/button"
-            android:text="Add"
-            android:textAllCaps="false"
-
+            style="@style/button_style"
+            android:layout_width="100dp"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="13dp" />
+
+            android:layout_marginBottom="13dp"
+            android:text="Add"
+            android:textAllCaps="false"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
 
     <EditText
         android:id="@+id/editText31"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:textSize="24sp"
-        android:background="@android:color/transparent"
-        android:layout_marginTop="43dp"
-        android:inputType="textPersonName"
-        android:text="Add Delivery Person"
-        android:layout_alignParentTop="true"
         android:layout_alignLeft="@+id/editText"
+        android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/editText"
         android:layout_marginLeft="15dp"
-        android:layout_marginStart="15dp" />
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="43dp"
+        android:background="@android:color/transparent"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Add Delivery Person"
+        android:textSize="24sp" />
 
 </RelativeLayout>

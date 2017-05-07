@@ -57,15 +57,16 @@
         android:layout_alignLeft="@+id/editText28"
         android:layout_alignStart="@+id/editText28"
         android:textAlignment="center"/>
+
     <ImageButton
+        android:id="@+id/btnViewOrders"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@mipmap/ic_orders"
-        android:id="@+id/imageButton11"
         android:layout_alignBottom="@+id/editText26"
         android:layout_alignLeft="@+id/imageButton8"
         android:layout_alignStart="@+id/imageButton8"
-        android:layout_marginBottom="42dp" />
+        android:layout_marginBottom="42dp"
+        android:background="@mipmap/ic_orders" />
 <ImageButton
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"

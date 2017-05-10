@@ -10,32 +10,32 @@ import com.example.hp.deliveryproject.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import java.util.List;
-import Model.DeliveryDetails;
+import Model.User;
 
 /**
  * Created by Bhagya Rathnayake on 5/10/2017.
  */
 
-public class AgentListController extends RecyclerView.Adapter<AgentListController.DeliveryViewHolder> {
+public class AgentListController extends RecyclerView.Adapter<AgentListController.userViewHolder> {
 
     FirebaseDatabase databaseInstance;
     DatabaseReference dbReference;
-    private List<DeliveryDetails> deliveryDetailsList;
+    private List<User> userDetailsList;
 
-    public List<DeliveryDetails> getDeliveryDetailsList() {
-        return deliveryDetailsList;
+    public List<User> getUserList() {
+        return userDetailsList;
     }
 
-    public void setDeliveryDetailsList(List<DeliveryDetails> deliveryDetailsList) {
-        this.deliveryDetailsList = deliveryDetailsList;
+    public void setUserList(List<User> userDetailsList) {
+        this.userDetailsList = userDetailsList;
     }
 
-    public class DeliveryViewHolder extends RecyclerView.ViewHolder
+    public class userViewHolder extends RecyclerView.ViewHolder
     {
         public TextView title, genre;
         public ImageButton year;
 
-        public DeliveryViewHolder(View view) {
+        public userViewHolder(View view) {
             super(view);
             title = (TextView) view.findViewById(R.id.title);
             genre = (TextView) view.findViewById(R.id.genre);
@@ -43,9 +43,9 @@ public class AgentListController extends RecyclerView.Adapter<AgentListControlle
         }
     }
 
-    public AgentListController(List<DeliveryDetails> details)
+    public AgentListController(List<User> details)
     {
-        this.deliveryDetailsList=details;
+        this.userDetailsList=details;
     }
 
     public AgentListController()
@@ -54,32 +54,32 @@ public class AgentListController extends RecyclerView.Adapter<AgentListControlle
     }
 
     @Override
-    public AgentListController.DeliveryViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public AgentListController.userViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.managerrequestrow, parent, false);
 
-        return new AgentListController.DeliveryViewHolder(itemView);
+        return new AgentListController.userViewHolder(itemView);
     }
 
     @Override
-    public void onBindViewHolder(AgentListController.DeliveryViewHolder holder, int position) {
+    public void onBindViewHolder(AgentListController.userViewHolder holder, int position) {
 
-        DeliveryDetails deliveryDetails = deliveryDetailsList.get(position);
-        holder.title.setText(deliveryDetails.getDeliveryID());
-        holder.genre.setText(deliveryDetails.getFromLocation());
+        User deliveryDetails = userDetailsList.get(position);
+        holder.title.setText(deliveryDetails.getName());
+        holder.genre.setText(deliveryDetails.getEmail());
 
     }
 
     @Override
     public int getItemCount()
     {
-        return deliveryDetailsList.size();
+        return userDetailsList.size();
     }
 
-    public DatabaseReference getPendingRequests()
+    public DatabaseReference getAgentList()
     {
         dbReference=databaseInstance.getReference("tables");
-        dbReference=dbReference.child("deliverydetails");
+        dbReference=dbReference.child("users");
         return dbReference;
     }
 

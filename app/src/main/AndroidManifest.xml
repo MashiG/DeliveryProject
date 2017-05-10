@@ -28,6 +28,7 @@
         <activity android:name=".AddDeliveryPerson"></activity>
         <activity android:name=".ManagerManagedDeliveryAgentActivity"></activity>
         <activity android:name=".ManagerViewDeliveryAgent"></activity>
+        <activity android:name=".UserViewPickup"></activity>
     </application>
 
 </manifest>

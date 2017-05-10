@@ -6,20 +6,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
-
 import com.example.hp.deliveryproject.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
 import java.util.List;
-
 import Model.DeliveryDetails;
 
 /**
- * Created by Bhagya Rathnayake on 5/2/2017.
+ * Created by Bhagya Rathnayake on 5/10/2017.
  */
 
-public class OrdersListController extends RecyclerView.Adapter<OrdersListController.DeliveryViewHolder>{
+public class AgentListController extends RecyclerView.Adapter<AgentListController.DeliveryViewHolder> {
 
     FirebaseDatabase databaseInstance;
     DatabaseReference dbReference;
@@ -46,29 +43,26 @@ public class OrdersListController extends RecyclerView.Adapter<OrdersListControl
         }
     }
 
-
-
-    public OrdersListController(List<DeliveryDetails> details)
+    public AgentListController(List<DeliveryDetails> details)
     {
         this.deliveryDetailsList=details;
     }
 
-    public OrdersListController()
+    public AgentListController()
     {
         databaseInstance=FirebaseDatabase.getInstance();
     }
 
     @Override
-    public DeliveryViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public AgentListController.DeliveryViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.managerrequestrow, parent, false);
 
-        return new DeliveryViewHolder(itemView);
+        return new AgentListController.DeliveryViewHolder(itemView);
     }
 
-
     @Override
-    public void onBindViewHolder(DeliveryViewHolder holder, int position) {
+    public void onBindViewHolder(AgentListController.DeliveryViewHolder holder, int position) {
 
         DeliveryDetails deliveryDetails = deliveryDetailsList.get(position);
         holder.title.setText(deliveryDetails.getDeliveryID());

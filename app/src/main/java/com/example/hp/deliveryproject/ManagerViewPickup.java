@@ -47,20 +47,32 @@ public class ManagerViewPickup extends AppCompatActivity {
     private void prepareMovieData() {
 
 
-        Iterator<DeliveryDetails> itr = deliveryList.iterator();
-
-        if(deliveryList.size()==0)
-        {
-//            Toast emptyListMessage = new Toast.makeText(ManagerViewPickup.this,"",Toast.LENGTH_LONG);
-//            emptyListMessage.setGravity(Gravity.CENTER,0,0);
-//            emptyListMessage.show();
-        }
-
-        while(itr.hasNext())
-        {
+//        Iterator<DeliveryDetails> itr = deliveryList.iterator();
+//
+//        if(deliveryList.size()==0)
+//        {
+////            Toast emptyListMessage = new Toast.makeText(ManagerViewPickup.this,"",Toast.LENGTH_LONG);
+////            emptyListMessage.setGravity(Gravity.CENTER,0,0);
+////            emptyListMessage.show();
+//        }
+//
+//        while(itr.hasNext())
+//        {
             DeliveryDetails delDet = new DeliveryDetails("one","one","one","one","one","one","one","one","one");
             deliveryList.add(delDet);
-        }
+
+        delDet = new DeliveryDetails("one","one","one","one","one","one","one","one","one");
+        deliveryList.add(delDet);
+
+        delDet = new DeliveryDetails("one","one","one","one","one","one","one","one","one");
+        deliveryList.add(delDet);
+
+        delDet = new DeliveryDetails("one","one","one","one","one","one","one","one","one");
+        deliveryList.add(delDet);
+
+        delDet = new DeliveryDetails("one","one","one","one","one","one","one","one","one");
+        deliveryList.add(delDet);
+//        }
 
 
     }

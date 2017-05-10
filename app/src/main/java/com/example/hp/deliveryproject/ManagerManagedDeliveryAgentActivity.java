@@ -2,8 +2,6 @@ package com.example.hp.deliveryproject;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageButton;
@@ -17,7 +15,7 @@ public class ManagerManagedDeliveryAgentActivity extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.managermanagedeliveryagent);
+        setContentView(R.layout.managerviewdeliveryagent);
 
         btnManagedDelAgent = (ImageButton) findViewById(R.id.btnAddNewAgent);
         btnManagedDelAgent.setOnClickListener(new View.OnClickListener() {

@@ -24,19 +24,17 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <EditText
+    <TextView
         android:id="@+id/editText22"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
+        android:textAlignment="center"
         android:background="@android:color/transparent"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Pickup Requests"
         android:textSize="24sp"
-        android:layout_below="@+id/imageButton6"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_below="@+id/imageButton6" />
 
     <RadioButton
         android:id="@+id/radioButton2"

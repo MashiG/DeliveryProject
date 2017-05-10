@@ -5,6 +5,8 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,15 +29,24 @@ public class OrdersListController extends RecyclerView.Adapter<OrdersListControl
     DatabaseReference dbReference;
     private List<DeliveryDetails> deliveryDetailsList;
 
+    public List<DeliveryDetails> getDeliveryDetailsList() {
+        return deliveryDetailsList;
+    }
+
+    public void setDeliveryDetailsList(List<DeliveryDetails> deliveryDetailsList) {
+        this.deliveryDetailsList = deliveryDetailsList;
+    }
+
     public class DeliveryViewHolder extends RecyclerView.ViewHolder
     {
-        public TextView title, year, genre;
+        public TextView title, genre;
+        public ImageButton year;
 
         public DeliveryViewHolder(View view) {
             super(view);
             title = (TextView) view.findViewById(R.id.title);
             genre = (TextView) view.findViewById(R.id.genre);
-            year = (TextView) view.findViewById(R.id.year);
+            year = (ImageButton) view.findViewById(R.id.year);
         }
     }
 
@@ -66,7 +77,6 @@ public class OrdersListController extends RecyclerView.Adapter<OrdersListControl
         DeliveryDetails deliveryDetails = deliveryDetailsList.get(position);
         holder.title.setText(deliveryDetails.getDeliveryID());
         holder.genre.setText(deliveryDetails.getFromLocation());
-        holder.year.setText(deliveryDetails.getToLocation());
 
     }
 

@@ -107,7 +107,8 @@ public class UserAddPickupRequest extends AppCompatActivity implements View.OnFo
                     for( DataSnapshot datasnapshotchild: dataSnapshot.getChildren()) {
                         System.out.println("VOLUME "+volume.toString());
                         System.out.println(datasnapshotchild.getValue(Packages.class).getPrice());
-                        priceDisplay.setText(datasnapshotchild.getValue(Packages.class).getPrice().toString());
+                        price = new BigDecimal(datasnapshotchild.getValue(Packages.class).getPrice().toString());
+                        priceDisplay.setText(price.toString());
                     }
                     //priceDisplay.setText(dataSnapshot.getValue(Packages.class).getPrice().toString());
                 }

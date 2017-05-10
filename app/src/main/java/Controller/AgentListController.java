@@ -58,8 +58,8 @@ public class AgentListController extends RecyclerView.Adapter<AgentListControlle
 
     public AgentListController()
     {
-        databaseInstance=FirebaseDatabase.getInstance();
-        getAgentList();
+       // databaseInstance=FirebaseDatabase.getInstance();
+       // getAgentList();
     }
 
     @Override

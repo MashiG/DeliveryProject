@@ -28,7 +28,7 @@ import Model.User;
 public class ManagerDashboard extends AppCompatActivity {
 
     ImageButton btnManageDelAgent,btnViewOrders;
-    OrdersListController ordersController = new OrdersListController();
+    //OrdersListController ordersController = new OrdersListController();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +39,7 @@ public class ManagerDashboard extends AppCompatActivity {
         btnManageDelAgent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent manageDelAgent = new Intent(ManagerDashboard.this,ManagerManagedDeliveryAgentActivity.class);
+                Intent manageDelAgent = new Intent(ManagerDashboard.this,ManagerViewDeliveryAgent.class);
                 startActivity(manageDelAgent);
             }
         });

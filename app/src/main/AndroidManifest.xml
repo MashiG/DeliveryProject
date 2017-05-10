@@ -27,6 +27,7 @@
         <activity android:name=".ChangePassword"></activity>
         <activity android:name=".AddDeliveryPerson"></activity>
         <activity android:name=".ManagerManagedDeliveryAgentActivity"></activity>
+        <activity android:name=".ManagerViewDeliveryAgent"></activity>
     </application>
 
 </manifest>

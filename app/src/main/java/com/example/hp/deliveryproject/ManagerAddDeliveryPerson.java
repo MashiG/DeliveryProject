@@ -60,7 +60,7 @@ public class ManagerAddDeliveryPerson extends AppCompatActivity {
                             myRef = myRef.child("users");
                             myRef = myRef.child(userReg.getEmail().toString());
                             myRef.setValue(userReg);
-                            finish();//mekala
+                            finish();//mekala done
                         }
                     }
 

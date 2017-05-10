@@ -12,8 +12,8 @@ import android.widget.ImageButton;
 import java.util.ArrayList;
 import java.util.List;
 
-import Controller.OrdersListController;
-import Model.DeliveryDetails;
+import Controller.AgentListController;
+import Model.User;
 
 /**
  * Created by Bhagya Rathnayake on 5/1/2017.
@@ -21,9 +21,9 @@ import Model.DeliveryDetails;
 
 public class ManagerManagedDeliveryAgentActivity extends AppCompatActivity {
     ImageButton btnManagedDelAgent;
-    private List<DeliveryDetails> deliveryList = new ArrayList<>();
+    private List<User> userList = new ArrayList<>();
     private RecyclerView recyclerView;
-    private OrdersListController orderListController;
+    private AgentListController agentListController;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -31,11 +31,11 @@ public class ManagerManagedDeliveryAgentActivity extends AppCompatActivity {
         setContentView(R.layout.managerviewdeliveryagent);
 
         recyclerView= (RecyclerView) findViewById(R.id.recycler_view_list);
-        orderListController = new OrdersListController(deliveryList);
+        agentListController = new AgentListController();
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(orderListController);
+        recyclerView.setAdapter(agentListController);
         prepareMovieData();
 
 
@@ -65,44 +65,21 @@ public class ManagerManagedDeliveryAgentActivity extends AppCompatActivity {
 //
 //        while(itr.hasNext())
 //        {
-        DeliveryDetails delDet = new DeliveryDetails("one","one","one","one","one","one","one","one","one");
-        deliveryList.add(delDet);
+        User delDet = new User("one","one",true,"one","one","one");
+        userList.add(delDet);
+        delDet = new User("one","one",true,"one","one","one");
+        userList.add(delDet);
+        delDet = new User("one","one",true,"one","one","one");
+        userList.add(delDet);
+        delDet = new User("one","one",true,"one","one","one");
+        userList.add(delDet);
+        delDet = new User("one","one",true,"one","one","one");
+        userList.add(delDet);
+        delDet = new User("one","one",true,"one","one","one");
+        userList.add(delDet);
 
-        delDet = new DeliveryDetails("one","one","one","one","one","one","one","one","one");
-        deliveryList.add(delDet);
 
-        delDet = new DeliveryDetails("one","one","one","one","one","one","one","one","one");
-        deliveryList.add(delDet);
 
-        delDet = new DeliveryDetails("one","one","one","one","one","one","one","one","one");
-        deliveryList.add(delDet);
-
-        delDet = new DeliveryDetails("one","one","one","one","one","one","one","one","one");
-        deliveryList.add(delDet);
-
-        delDet = new DeliveryDetails("one","one","one","one","one","one","one","one","one");
-        deliveryList.add(delDet);
-
-        delDet = new DeliveryDetails("one","one","one","one","one","one","one","one","one");
-        deliveryList.add(delDet);
-
-        delDet = new DeliveryDetails("one","one","one","one","one","one","one","one","one");
-        deliveryList.add(delDet);
-
-        delDet = new DeliveryDetails("one","one","one","one","one","one","one","one","one");
-        deliveryList.add(delDet);
-
-        delDet = new DeliveryDetails("one","one","one","one","one","one","one","one","one");
-        deliveryList.add(delDet);
-
-        delDet = new DeliveryDetails("one","one","one","one","one","one","one","one","one");
-        deliveryList.add(delDet);
-
-        delDet = new DeliveryDetails("one","one","one","one","one","one","one","one","one");
-        deliveryList.add(delDet);
-
-        delDet = new DeliveryDetails("one","one","one","one","one","one","one","one","one");
-        deliveryList.add(delDet);
 //        }
 
 

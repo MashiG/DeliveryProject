@@ -7,9 +7,17 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import com.example.hp.deliveryproject.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+
+import Model.DeliveryDetails;
 import Model.User;
 
 /**
@@ -51,6 +59,7 @@ public class AgentListController extends RecyclerView.Adapter<AgentListControlle
     public AgentListController()
     {
         databaseInstance=FirebaseDatabase.getInstance();
+        getAgentList();
     }
 
     @Override
@@ -78,8 +87,28 @@ public class AgentListController extends RecyclerView.Adapter<AgentListControlle
 
     public DatabaseReference getAgentList()
     {
-        dbReference=databaseInstance.getReference("tables");
-        dbReference=dbReference.child("users");
+        System.out.println("herer");
+        //dbReference=databaseInstance.getReference("tables/users");
+        /*
+        dbReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+               /*User user = dataSnapshot.getValue(User.class);
+                System.out.println("hererer " + user.getName());*/
+               /*Iterator<DataSnapshot> dataSnapshotIterable = dataSnapshot.getChildren().iterator();
+                List<User> userDetailsList = new ArrayList<User>();
+                while(dataSnapshotIterable.hasNext()){
+                    userDetailsList.add(dataSnapshotIterable.next().getValue(User.class));
+                    System.out.println(dataSnapshotIterable.next().getValue(User.class).getName());
+
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });*/
         return dbReference;
     }
 

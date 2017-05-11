@@ -1,19 +1,7 @@
 package com.example.hp.deliveryproject;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.view.View;
-import android.widget.ImageButton;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import Controller.AgentListController;
-import Model.User;
 
 /**
  * Created by Bhagya Rathnayake on 5/1/2017.
@@ -30,7 +18,7 @@ public class ManagerManagedDeliveryAgentActivity extends AppCompatActivity {
 //    ImageButton btnManagedDelAgent;
 //    private List<User> userList = new ArrayList<>();
 //    private RecyclerView recyclerView;
-////    private AgentListController agentListController;
+////    private DeliveryAgentViewPickupListController agentListController;
 //
 //    @Override
 //    public void onCreate(Bundle savedInstanceState) {
@@ -38,7 +26,7 @@ public class ManagerManagedDeliveryAgentActivity extends AppCompatActivity {
 //        setContentView(R.layout.managerviewdeliveryagent);
 //
 //        recyclerView= (RecyclerView) findViewById(R.id.recycler_view_list);
-////        agentListController = new AgentListController();
+////        agentListController = new DeliveryAgentViewPickupListController();
 //        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
 //        recyclerView.setLayoutManager(mLayoutManager);
 //        recyclerView.setItemAnimator(new DefaultItemAnimator());

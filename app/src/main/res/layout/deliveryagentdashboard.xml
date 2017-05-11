@@ -1,93 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/rectangle"
-    >
+    android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/editText21"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
-
-        android:background="@android:color/transparent"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Welcome Delivery Agent"
-        android:textSize="24sp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/editText21">
+        android:gravity="center"
+        android:orientation="vertical">
 
-        <ImageButton
-            android:id="@+id/imageButton9"
+        <TextView
+            android:id="@+id/editText21"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:background="@mipmap/ic_settings"
+            android:background="@android:color/transparent"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Welcome Delivery Agent"
+            android:textSize="24sp"
+            android:padding="20dp"/>
 
 
-            />
+        <ImageButton
+            android:id="@+id/imageButtonDeliveryAgentDashboard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/ic_view"
+            android:padding="20dp"/>
+
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="View Pickup Request"
+            android:textAppearance="@style/TextAppearance.AppCompat.Button"
+            android:padding="20dp"/>
 
         <ImageButton
             android:id="@+id/imageButton3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
-            android:background="@mipmap/ic_changepassword"
-            android:layout_marginBottom="96dp"
             android:layout_above="@+id/buttonlogout"
-            android:layout_centerHorizontal="true" />
+            android:background="@mipmap/ic_changepassword"
+            android:padding="20dp"/>
 
-        <ImageButton
-            android:id="@+id/imageButton"
+        <TextView
+            android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="92dp"
-            android:background="@mipmap/ic_view"
-            android:layout_alignParentTop="true"
-            android:layout_alignLeft="@+id/imageButton3"
-            android:layout_alignStart="@+id/imageButton3" />
+            android:text="Change Password"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:padding="20dp"/>
+
 
         <Button
-
+            android:padding="20dp"
             android:id="@+id/buttonlogout"
             style="@style/button_style"
             android:layout_width="150dp"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="10dp"
             android:text="Logout"
             android:textAllCaps="false" />
-    </RelativeLayout>
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/editText21"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="165dp"
-        android:text="View Pickup Request"
-        android:textAppearance="@style/TextAppearance.AppCompat.Button" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="103dp"
-        android:text="Change Password"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+    </LinearLayout>
 
 </RelativeLayout>

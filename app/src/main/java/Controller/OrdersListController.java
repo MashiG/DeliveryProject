@@ -19,84 +19,44 @@ import Model.DeliveryDetails;
  * Created by Bhagya Rathnayake on 5/2/2017.
  */
 
-public class OrdersListController extends RecyclerView.Adapter<OrdersListController.DeliveryViewHolder>{
+public class OrdersListController extends RecyclerView.Adapter<OrdersListController.MyViewHolder>{
 
-    FirebaseDatabase databaseInstance;
-    DatabaseReference dbReference;
-    private List<DeliveryDetails> deliveryDetailsList;
+    private List<DeliveryDetails> managerViewPickupList;
 
-    public List<DeliveryDetails> getDeliveryDetailsList() {
-        return deliveryDetailsList;
-    }
+    public class MyViewHolder extends RecyclerView.ViewHolder {
+        public TextView date, fromLocation, toLocation, status;
 
-    public void setDeliveryDetailsList(List<DeliveryDetails> deliveryDetailsList) {
-        this.deliveryDetailsList = deliveryDetailsList;
-    }
-
-    public class DeliveryViewHolder extends RecyclerView.ViewHolder
-    {
-        public TextView title, genre;
-        public ImageButton year;
-
-        public DeliveryViewHolder(View view) {
+        public MyViewHolder(View view){
             super(view);
-            title = (TextView) view.findViewById(R.id.title);
-            genre = (TextView) view.findViewById(R.id.genre);
-            year = (ImageButton) view.findViewById(R.id.year);
+            date = (TextView) view.findViewById((R.id.userReqestRowDate));
+            fromLocation = (TextView) view.findViewById((R.id.userRequestRowFromLocation));
+            toLocation = (TextView) view.findViewById((R.id.userRequestRowToLocation));
+            status = (TextView) view.findViewById(R.id.userRequestRowStatus);
         }
     }
 
-
-
-    public OrdersListController(List<DeliveryDetails> details)
-    {
-        this.deliveryDetailsList=details;
-    }
-
-    public OrdersListController()
-    {
-        databaseInstance=FirebaseDatabase.getInstance();
+    public OrdersListController(List<DeliveryDetails> managerViewPickupList){
+        this.managerViewPickupList = managerViewPickupList;
     }
 
     @Override
-    public DeliveryViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public OrdersListController.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.managerrequestrow, parent, false);
-
-        return new DeliveryViewHolder(itemView);
+                .inflate(R.layout.userrequestrow, parent, false);
+        return new OrdersListController.MyViewHolder(itemView);
     }
 
-
     @Override
-    public void onBindViewHolder(DeliveryViewHolder holder, int position) {
-
-        DeliveryDetails deliveryDetails = deliveryDetailsList.get(position);
-        holder.title.setText(deliveryDetails.getDeliveryID());
-        holder.genre.setText(deliveryDetails.getFromLocation());
+    public void onBindViewHolder(OrdersListController.MyViewHolder holder, int position) {
+        DeliveryDetails deliveryDetails = managerViewPickupList.get(position);
+        holder.date.setText(deliveryDetails.getDeliveryDate());
+        holder.fromLocation.setText(deliveryDetails.getFromLocation());
+        holder.toLocation.setText(deliveryDetails.getToLocation());
 
     }
 
     @Override
-    public int getItemCount()
-    {
-        return deliveryDetailsList.size();
+    public int getItemCount() {
+        return managerViewPickupList.size();
     }
-
-    public DatabaseReference getPendingRequests()
-    {
-        dbReference=databaseInstance.getReference("tables");
-        dbReference=dbReference.child("deliverydetails");
-        return dbReference;
-    }
-
-    public void getAcceptedRequests()
-    {
-
-    }
-
-    public void getAllRequests()
-    {
-
-    }
-
 }

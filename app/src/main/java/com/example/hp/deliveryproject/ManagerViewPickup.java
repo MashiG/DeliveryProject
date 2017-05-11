@@ -9,11 +9,18 @@ import android.view.Gravity;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 import Controller.OrdersListController;
+import Controller.UserViewPickupController;
 import Model.DeliveryDetails;
 
 /**
@@ -22,59 +29,46 @@ import Model.DeliveryDetails;
 
 public class ManagerViewPickup extends AppCompatActivity {
 
-    private List<DeliveryDetails> deliveryList = new ArrayList<>();
+    private List<DeliveryDetails> managerViewPickupList = new ArrayList<>();
     private RecyclerView recyclerView;
-    private OrdersListController orderListController;
+    private UserViewPickupController mAdapter;
+    private DatabaseReference databaseReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.managerviewpickup);
-        setContentView(R.layout.recycler_view_layout);
+        setContentView(R.layout.managerviewpickup);
 
-        System.out.println("HELLO WORLD");
+        recyclerView = (RecyclerView) findViewById(R.id.manager_pickup_recycler_view);
 
-        recyclerView= (RecyclerView) findViewById(R.id.recycler_view);
-        orderListController = new OrdersListController(deliveryList);
+        mAdapter = new UserViewPickupController(managerViewPickupList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
-        recyclerView.setAdapter(orderListController);
 
-        prepareMovieData();
+        //CONNECT TO DATABASE AND THEN SET RECYLER VIEW ADAPTER
+        databaseReference = FirebaseDatabase.getInstance().getReference("tables/deliverydetails");
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                prepareDeliveryDetailsData(dataSnapshot);
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
+
     }
 
-    private void prepareMovieData() {
-
-
-//        Iterator<DeliveryDetails> itr = deliveryList.iterator();
-//
-//        if(deliveryList.size()==0)
-//        {
-////            Toast emptyListMessage = new Toast.makeText(ManagerViewPickup.this,"",Toast.LENGTH_LONG);
-////            emptyListMessage.setGravity(Gravity.CENTER,0,0);
-////            emptyListMessage.show();
-//        }
-//
-//        while(itr.hasNext())
-//        {
-            DeliveryDetails delDet = new DeliveryDetails("one","one","one","one","one","one","one","one","one");
-            deliveryList.add(delDet);
-
-        delDet = new DeliveryDetails("one","one","one","one","one","one","one","one","one");
-        deliveryList.add(delDet);
-
-        delDet = new DeliveryDetails("one","one","one","one","one","one","one","one","one");
-        deliveryList.add(delDet);
-
-        delDet = new DeliveryDetails("one","one","one","one","one","one","one","one","one");
-        deliveryList.add(delDet);
-
-        delDet = new DeliveryDetails("one","one","one","one","one","one","one","one","one");
-        deliveryList.add(delDet);
-//        }
-
-
+    private void prepareDeliveryDetailsData(DataSnapshot dataSnapshot) {
+        for(DataSnapshot dataSnapshotItem : dataSnapshot.getChildren()){
+            managerViewPickupList.add(dataSnapshotItem.getValue(DeliveryDetails.class));
+            mAdapter = new UserViewPickupController(managerViewPickupList);
+            recyclerView.setAdapter(mAdapter);
+        }
+        mAdapter.notifyDataSetChanged();
     }
 
 }

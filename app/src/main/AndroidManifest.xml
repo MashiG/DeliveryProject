@@ -30,6 +30,7 @@
         <activity android:name=".ManagerViewDeliveryAgent"></activity>
         <activity android:name=".UserViewPickup"></activity>
         <activity android:name=".DeliveryAgentViewPickup"></activity>
+        <activity android:name=".UpdateUserAcoountActivity"></activity>
     </application>
 
 </manifest>

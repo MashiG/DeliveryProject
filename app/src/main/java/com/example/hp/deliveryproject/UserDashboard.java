@@ -51,5 +51,13 @@ public class UserDashboard extends AppCompatActivity {
             }
         });
 
+        accountImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intt = new Intent(UserDashboard.this,UpdateUserAcoountActivity.class);
+                startActivity(intt);
+            }
+        });
+
     }
 }

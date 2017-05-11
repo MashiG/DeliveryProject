@@ -1,12 +1,22 @@
 package Controller;
 
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.hp.deliveryproject.ManagerAssignDeliveryAgent;
+import com.example.hp.deliveryproject.ManagerViewDeliveryAgent;
 import com.example.hp.deliveryproject.R;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 
@@ -16,19 +26,24 @@ import Model.DeliveryDetails;
  * Created by murtaza on 5/10/17.
  */
 
-public class UserViewPickupController extends RecyclerView.Adapter<UserViewPickupController.MyViewHolder> {
+public class UserViewPickupController extends RecyclerView.Adapter<UserViewPickupController.MyViewHolder>{
 
     private List<DeliveryDetails> deliveryDetailsList;
-
+    Context contt;
+    ManagerAssignDeliveryAgent obj;
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView date, fromLocation, toLocation, status;
+        public ImageButton assignee;
+
 
         public MyViewHolder(View view){
             super(view);
+            contt=view.getContext();
             date = (TextView) view.findViewById((R.id.userReqestRowDate));
             fromLocation = (TextView) view.findViewById((R.id.userRequestRowFromLocation));
             toLocation = (TextView) view.findViewById((R.id.userRequestRowToLocation));
             status = (TextView) view.findViewById(R.id.userRequestRowStatus);
+            assignee= (ImageButton) view.findViewById(R.id.assignee);
         }
     }
 
@@ -44,17 +59,40 @@ public class UserViewPickupController extends RecyclerView.Adapter<UserViewPicku
     }
 
     @Override
-    public void onBindViewHolder(UserViewPickupController.MyViewHolder holder, int position) {
-        DeliveryDetails deliveryDetails = deliveryDetailsList.get(position);
+    public void onBindViewHolder(final UserViewPickupController.MyViewHolder holder, int position) {
+
+        final DeliveryDetails deliveryDetails = deliveryDetailsList.get(position);
         holder.date.setText(deliveryDetails.getDeliveryDate());
         holder.fromLocation.setText(deliveryDetails.getFromLocation());
         holder.toLocation.setText(deliveryDetails.getToLocation());
         holder.status.setText(deliveryDetails.getStatus());
 
+        holder.assignee.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               //obj = new ManagerAssignDeliveryAgent(Integer.parseInt(deliveryDetails.getDeliveryID()));
+
+                assignDelAgent(Integer.parseInt(deliveryDetails.getDeliveryID()));
+                Intent intt = new Intent(v.getContext(),ManagerAssignDeliveryAgent.class);
+                contt.startActivity(intt);
+
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
         return deliveryDetailsList.size();
+    }
+
+
+
+    private void assignDelAgent(int DelId)
+    {
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("tables");
+        myRef.child("deliverydetails").child(""+DelId).child("status").setValue("assigned");
+
     }
 }

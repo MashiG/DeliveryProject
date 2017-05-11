@@ -21,15 +21,36 @@ import Model.User;
  */
 
 public class ManagerAssignDeliveryAgent extends AppCompatActivity {
+    ImageButton assignAgent;
     ImageButton btnManageDelAgent = (ImageButton) findViewById(R.id.btnManageDelAgent);
     Button allocate= (Button) findViewById(R.id.buttonallocate);
     private String name;
     private EditText et_name;
     private String deliveryID;
+
+    public ManagerAssignDeliveryAgent(int Id)
+    {
+        assignDelAgent(Id);
+        System.out.println("MANAGER ACCESSED");
+    }
+
+    private void assignDelAgent(int DelId)
+    {
+        System.out.println("METHOD ACCESSED");
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("tables");
+        myRef.child("deliverydetails").child(""+DelId).child("status").setValue("assigned");
+        System.out.println("DELIVERY UPDATED");
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.managerallocatedeliveryagent);
+
+
+
         allocate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

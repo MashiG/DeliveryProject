@@ -49,6 +49,7 @@ public class DeliveryAgentViewPickupListController extends RecyclerView.Adapter<
         holder.date.setText(deliveryAgent.getDeliveryDate());
         holder.fromLocation.setText(deliveryAgent.getFromLocation());
         holder.toLocation.setText(deliveryAgent.getToLocation());
+
     }
 
     @Override

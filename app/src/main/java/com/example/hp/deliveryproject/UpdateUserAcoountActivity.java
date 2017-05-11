@@ -40,7 +40,7 @@ public class UpdateUserAcoountActivity extends AppCompatActivity {
         });
 
     }
-    
+
     private void UpdateData(String Name,String Phone)
     {
         FirebaseDatabase db = FirebaseDatabase.getInstance();

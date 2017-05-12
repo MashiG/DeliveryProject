@@ -31,7 +31,7 @@ public class ManagerViewPickup extends AppCompatActivity {
 
     private List<DeliveryDetails> managerViewPickupList = new ArrayList<>();
     private RecyclerView recyclerView;
-    private UserViewPickupController mAdapter;
+    private OrdersListController mAdapter;
     private DatabaseReference databaseReference;
 
     @Override
@@ -41,7 +41,7 @@ public class ManagerViewPickup extends AppCompatActivity {
 
         recyclerView = (RecyclerView) findViewById(R.id.manager_pickup_recycler_view);
 
-        mAdapter = new UserViewPickupController(managerViewPickupList);
+        mAdapter = new OrdersListController(managerViewPickupList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -65,7 +65,7 @@ public class ManagerViewPickup extends AppCompatActivity {
     private void prepareDeliveryDetailsData(DataSnapshot dataSnapshot) {
         for(DataSnapshot dataSnapshotItem : dataSnapshot.getChildren()){
             managerViewPickupList.add(dataSnapshotItem.getValue(DeliveryDetails.class));
-            mAdapter = new UserViewPickupController(managerViewPickupList);
+            mAdapter = new OrdersListController(managerViewPickupList);
             recyclerView.setAdapter(mAdapter);
         }
         mAdapter.notifyDataSetChanged();

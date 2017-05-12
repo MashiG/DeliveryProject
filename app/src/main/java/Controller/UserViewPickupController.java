@@ -30,10 +30,10 @@ public class UserViewPickupController extends RecyclerView.Adapter<UserViewPicku
 
     private List<DeliveryDetails> deliveryDetailsList;
     Context contt;
-    ManagerAssignDeliveryAgent obj;
+
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView date, fromLocation, toLocation, status;
-        public ImageButton assignee;
+
 
 
         public MyViewHolder(View view){
@@ -43,7 +43,7 @@ public class UserViewPickupController extends RecyclerView.Adapter<UserViewPicku
             fromLocation = (TextView) view.findViewById((R.id.userRequestRowFromLocation));
             toLocation = (TextView) view.findViewById((R.id.userRequestRowToLocation));
             status = (TextView) view.findViewById(R.id.userRequestRowStatus);
-            assignee= (ImageButton) view.findViewById(R.id.assignee);
+
         }
     }
 
@@ -67,17 +67,7 @@ public class UserViewPickupController extends RecyclerView.Adapter<UserViewPicku
         holder.toLocation.setText(deliveryDetails.getToLocation());
         holder.status.setText(deliveryDetails.getStatus());
 
-        holder.assignee.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               //obj = new ManagerAssignDeliveryAgent(Integer.parseInt(deliveryDetails.getDeliveryID()));
 
-                assignDelAgent(Integer.parseInt(deliveryDetails.getDeliveryID()));
-                Intent intt = new Intent(v.getContext(),ManagerAssignDeliveryAgent.class);
-                contt.startActivity(intt);
-
-            }
-        });
     }
 
     @Override
@@ -85,14 +75,4 @@ public class UserViewPickupController extends RecyclerView.Adapter<UserViewPicku
         return deliveryDetailsList.size();
     }
 
-
-
-    private void assignDelAgent(int DelId)
-    {
-
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("tables");
-        myRef.child("deliverydetails").child(""+DelId).child("status").setValue("assigned");
-
-    }
 }

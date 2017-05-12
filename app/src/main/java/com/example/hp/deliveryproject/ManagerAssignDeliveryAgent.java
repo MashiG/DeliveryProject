@@ -28,11 +28,13 @@ public class ManagerAssignDeliveryAgent extends AppCompatActivity {
     private EditText et_name;
     private String deliveryID;
 
-    public ManagerAssignDeliveryAgent(int Id)
-    {
-        assignDelAgent(Id);
-        System.out.println("MANAGER ACCESSED");
-    }
+//    public ManagerAssignDeliveryAgent(int Id)
+//    {
+//        assignDelAgent(Id);
+//        System.out.println("MANAGER ACCESSED");
+//    }
+
+
 
     private void assignDelAgent(int DelId)
     {
@@ -50,6 +52,13 @@ public class ManagerAssignDeliveryAgent extends AppCompatActivity {
         setContentView(R.layout.managerallocatedeliveryagent);
 
 
+        //Get the bundle
+        Bundle bundle = getIntent().getExtras();
+
+        //Extract the data…
+        String deliveryID1 = bundle.getString("deliveryID");
+
+        System.out.println("DELIVERY ID "+deliveryID1);
 
         allocate.setOnClickListener(new View.OnClickListener() {
             @Override

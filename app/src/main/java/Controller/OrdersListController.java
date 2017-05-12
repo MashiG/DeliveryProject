@@ -25,13 +25,15 @@ public class OrdersListController extends RecyclerView.Adapter<OrdersListControl
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView date, fromLocation, toLocation, status;
+        public ImageButton btnAssign;
 
         public MyViewHolder(View view){
             super(view);
-            date = (TextView) view.findViewById((R.id.userReqestRowDate));
-            fromLocation = (TextView) view.findViewById((R.id.userRequestRowFromLocation));
-            toLocation = (TextView) view.findViewById((R.id.userRequestRowToLocation));
-            status = (TextView) view.findViewById(R.id.userRequestRowStatus);
+            date = (TextView) view.findViewById((R.id.userReqestRowDate1));
+            fromLocation = (TextView) view.findViewById((R.id.userRequestRowFromLocation1));
+            toLocation = (TextView) view.findViewById((R.id.userRequestRowToLocation1));
+            status = (TextView) view.findViewById(R.id.userRequestRowStatus1);
+            btnAssign= (ImageButton) view.findViewById(R.id.btnassign);
         }
     }
 
@@ -42,16 +44,31 @@ public class OrdersListController extends RecyclerView.Adapter<OrdersListControl
     @Override
     public OrdersListController.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.userrequestrow, parent, false);
+                .inflate(R.layout.recycler_view_layout, parent, false);
         return new OrdersListController.MyViewHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(OrdersListController.MyViewHolder holder, int position) {
-        DeliveryDetails deliveryDetails = managerViewPickupList.get(position);
+        final DeliveryDetails deliveryDetails = managerViewPickupList.get(position);
         holder.date.setText(deliveryDetails.getDeliveryDate());
         holder.fromLocation.setText(deliveryDetails.getFromLocation());
         holder.toLocation.setText(deliveryDetails.getToLocation());
+        holder.btnAssign.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                    assignDelAgent(Integer.parseInt(deliveryDetails.getDeliveryID()));
+            }
+        });
+
+    }
+
+    private void assignDelAgent(int DelId)
+    {
+
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("tables");
+        myRef.child("deliverydetails").child(""+DelId).child("status").setValue("assigned");
 
     }
 

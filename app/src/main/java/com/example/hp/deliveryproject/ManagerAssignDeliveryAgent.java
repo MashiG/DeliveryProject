@@ -63,7 +63,7 @@ public class ManagerAssignDeliveryAgent extends AppCompatActivity {
 
                 System.out.println("DELIVERY ID "+deliveryID1);
 
-                /*et_name=(EditText) findViewById(R.id.name);
+                et_name=(EditText) findViewById(R.id.name);
                 FirebaseDatabase chkDB= FirebaseDatabase.getInstance();
                 DatabaseReference chkref=chkDB.getReference("tables/deliverydetails");
                 chkref.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -93,7 +93,7 @@ public class ManagerAssignDeliveryAgent extends AppCompatActivity {
                     public void onCancelled(DatabaseError databaseError) {
 
                     }
-                });*/
+                });
 
             }
         });

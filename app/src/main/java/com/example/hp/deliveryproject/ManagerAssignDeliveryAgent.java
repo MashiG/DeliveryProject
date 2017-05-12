@@ -22,8 +22,7 @@ import Model.User;
 
 public class ManagerAssignDeliveryAgent extends AppCompatActivity {
     ImageButton assignAgent;
-    ImageButton btnManageDelAgent = (ImageButton) findViewById(R.id.btnManageDelAgent);
-    Button allocate= (Button) findViewById(R.id.buttonallocate);
+    Button allocate;
     private String name;
     private EditText et_name;
     private String deliveryID;
@@ -35,7 +34,7 @@ public class ManagerAssignDeliveryAgent extends AppCompatActivity {
 //    }
 
 
-
+/*
     private void assignDelAgent(int DelId)
     {
         System.out.println("METHOD ACCESSED");
@@ -43,28 +42,28 @@ public class ManagerAssignDeliveryAgent extends AppCompatActivity {
         DatabaseReference myRef = database.getReference("tables");
         myRef.child("deliverydetails").child(""+DelId).child("status").setValue("assigned");
         System.out.println("DELIVERY UPDATED");
-    }
+    }*/
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.managerallocatedeliveryagent);
-
-
-        //Get the bundle
-        Bundle bundle = getIntent().getExtras();
-
-        //Extract the data…
-        String deliveryID1 = bundle.getString("deliveryID");
-
-        System.out.println("DELIVERY ID "+deliveryID1);
+        allocate = (Button) findViewById(R.id.buttonallocate);
 
         allocate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                deliveryID="1";
-                et_name=(EditText) findViewById(R.id.name);
+
+                //Get the bundle
+                Bundle bundle = getIntent().getExtras();
+
+                //Extract the data…
+                String deliveryID1 = bundle.getString("deliveryID");
+
+                System.out.println("DELIVERY ID "+deliveryID1);
+
+                /*et_name=(EditText) findViewById(R.id.name);
                 FirebaseDatabase chkDB= FirebaseDatabase.getInstance();
                 DatabaseReference chkref=chkDB.getReference("tables/deliverydetails");
                 chkref.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -94,7 +93,7 @@ public class ManagerAssignDeliveryAgent extends AppCompatActivity {
                     public void onCancelled(DatabaseError databaseError) {
 
                     }
-                });
+                });*/
 
             }
         });

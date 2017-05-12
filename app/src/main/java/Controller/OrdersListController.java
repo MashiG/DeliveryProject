@@ -54,6 +54,7 @@ public class OrdersListController extends RecyclerView.Adapter<OrdersListControl
         holder.date.setText(deliveryDetails.getDeliveryDate());
         holder.fromLocation.setText(deliveryDetails.getFromLocation());
         holder.toLocation.setText(deliveryDetails.getToLocation());
+        holder.status.setText(deliveryDetails.getStatus());
         holder.btnAssign.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,7 +70,7 @@ public class OrdersListController extends RecyclerView.Adapter<OrdersListControl
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("tables");
         myRef.child("deliverydetails").child(""+DelId).child("status").setValue("assigned");
-
+        System.out.println();
     }
 
     @Override

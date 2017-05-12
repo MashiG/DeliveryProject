@@ -28,6 +28,7 @@ import Model.User;
 public class ManagerDashboard extends AppCompatActivity {
 
     ImageButton btnManageDelAgent,btnViewOrders,btnChangePw;
+    Button logOut;
     //OrdersListController ordersController = new OrdersListController();
 
     @Override
@@ -59,6 +60,16 @@ public class ManagerDashboard extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intt = new Intent(ManagerDashboard.this,ChangePassword.class);
                 startActivity(intt);
+            }
+        });
+
+        logOut= (Button) findViewById(R.id.buttonlogout);
+        logOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intt = new Intent(ManagerDashboard.this,MainActivity.class);
+                startActivity(intt);
+                finish();
             }
         });
 

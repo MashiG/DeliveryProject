@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 /**
@@ -12,6 +13,7 @@ import android.widget.ImageButton;
 
 public class UserDashboard extends AppCompatActivity {
     ImageButton viewImage, accountImage, changepasswordImage, addPickupRequest;
+    Button logOut;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +58,16 @@ public class UserDashboard extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intt = new Intent(UserDashboard.this,UpdateUserAcoountActivity.class);
                 startActivity(intt);
+            }
+        });
+
+        logOut = (Button) findViewById(R.id.buttonlogout);
+        logOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intt = new Intent(UserDashboard.this,MainActivity.class);
+                startActivity(intt);
+                finish();
             }
         });
 

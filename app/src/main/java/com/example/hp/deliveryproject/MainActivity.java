@@ -22,7 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 import Model.User;
 
 public class MainActivity extends AppCompatActivity {
-    Button regBtn, loginBtn;
+    Button regBtn, loginBtn,resetPw;
     EditText textPassword, textEmail;
     SharedPreferences svUserName,svPassword,svUserType;
     CheckBox chkSaveData;
@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         regBtn= (Button) findViewById(R.id.registerBtn);
         loginBtn = (Button) findViewById(R.id.loginBtn);
+        resetPw = (Button) findViewById(R.id.reset);
         textPassword = (EditText) findViewById((R.id.textPassword));
         textEmail = (EditText) findViewById(R.id.textEmailAddress);
         //Bhagya- References Regarding Sessions
@@ -49,6 +50,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent registrationIntent = new Intent(MainActivity.this, RegisterActivity.class);
+                startActivity(registrationIntent);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            }
+
+        });
+        resetPw.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent registrationIntent = new Intent(MainActivity.this, ResetPassword.class);
                 startActivity(registrationIntent);
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }

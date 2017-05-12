@@ -66,8 +66,6 @@ public class UserViewPickupController extends RecyclerView.Adapter<UserViewPicku
         holder.fromLocation.setText(deliveryDetails.getFromLocation());
         holder.toLocation.setText(deliveryDetails.getToLocation());
         holder.status.setText(deliveryDetails.getStatus());
-
-
     }
 
     @Override

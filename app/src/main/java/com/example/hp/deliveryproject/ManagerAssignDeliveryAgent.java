@@ -21,36 +21,20 @@ import Model.User;
  */
 
 public class ManagerAssignDeliveryAgent extends AppCompatActivity {
+    EditText et_name;
     ImageButton assignAgent;
     Button allocate;
     private String name;
-    private EditText et_name;
     private String deliveryID;
-
-//    public ManagerAssignDeliveryAgent(int Id)
-//    {
-//        assignDelAgent(Id);
-//        System.out.println("MANAGER ACCESSED");
-//    }
-
-
-/*
-    private void assignDelAgent(int DelId)
-    {
-        System.out.println("METHOD ACCESSED");
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("tables");
-        myRef.child("deliverydetails").child(""+DelId).child("status").setValue("assigned");
-        System.out.println("DELIVERY UPDATED");
-    }*/
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.managerallocatedeliveryagent);
+        et_name=(EditText) findViewById(R.id.etName);
         allocate = (Button) findViewById(R.id.buttonallocate);
-
+        name=et_name.getText().toString();
         allocate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,44 +43,67 @@ public class ManagerAssignDeliveryAgent extends AppCompatActivity {
                 Bundle bundle = getIntent().getExtras();
 
                 //Extract the data…
-                String deliveryID1 = bundle.getString("deliveryID");
+                final String deliveryID1 = bundle.getString("deliveryID");
 
                 System.out.println("DELIVERY ID "+deliveryID1);
 
-                et_name=(EditText) findViewById(R.id.name);
+
                 FirebaseDatabase chkDB= FirebaseDatabase.getInstance();
                 DatabaseReference chkref=chkDB.getReference("tables/deliverydetails");
-                chkref.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
+                chkref.child(deliveryID1).child("deliveryAgentID").setValue(et_name.getText().toString());
 
-                        if (dataSnapshot.hasChild(deliveryID)){
-                            FirebaseDatabase DBupdate= FirebaseDatabase.getInstance();
-                            DatabaseReference DBupdatRef= DBupdate.getReference("tables/deliverydetails/"+deliveryID+"/status");
-                            DBupdatRef.setValue("allocated");//(UserUpdatePassword);
-                            DBupdatRef= DBupdate.getReference("tables/deliverydetails/"+deliveryID+"/status/deliveryAgentID");
-                            DBupdatRef.setValue(et_name);
-                            Snackbar mySnackbar = Snackbar.make(getWindow().getDecorView().findViewById(android.R.id.content), "Update Successfully", Snackbar.LENGTH_LONG);
-                            mySnackbar.show();
-                            finish();
-
-
-                            //Snackbar mySnackbar1 = Snackbar.make(getWindow().getDecorView().findViewById(android.R.id.content), currentUser+" done", Snackbar.LENGTH_LONG);
-                            //mySnackbar1.show();
-
-                            //UserUpdatePassword.setPassword(new_password.getText().toString());
-
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-
-                    }
-                });
+//                chkref.addListenerForSingleValueEvent(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(DataSnapshot dataSnapshot) {
+//
+//                        if (dataSnapshot.hasChild(deliveryID1)){
+//                            FirebaseDatabase DBupdate= FirebaseDatabase.getInstance();
+//                            DatabaseReference DBupdatRef= DBupdate.getReference("tables/deliverydetails/"+deliveryID1+"/status");
+//                            DBupdatRef.setValue("allocated");//(UserUpdatePassword);
+//                            DBupdatRef= DBupdate.getReference("tables/deliverydetails/"+deliveryID1+"/status/deliveryAgentID");
+//                            DBupdatRef.setValue(""+name);
+//                            Snackbar mySnackbar = Snackbar.make(getWindow().getDecorView().findViewById(android.R.id.content), "Update Successfully", Snackbar.LENGTH_LONG);
+//                            mySnackbar.show();
+//                            finish();
+//
+//
+////                            Snackbar mySnackbar1 = Snackbar.make(getWindow().getDecorView().findViewById(android.R.id.content), currentUser+" done", Snackbar.LENGTH_LONG);
+////                            mySnackbar1.show();
+////
+////                            UserUpdatePassword.setPassword(new_password.getText().toString());
+//
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(DatabaseError databaseError) {
+//
+//                    }
+//                });
 
             }
         });
     }
+
+//    private void assignDelAgent(String Agent)
+//    {
+//
+//        //Get the bundle
+//        Bundle bundle = getIntent().getExtras();
+//
+//        //Extract the data…
+//        String deliveryID1 = bundle.getString("deliveryID");
+//
+//        System.out.println("DELIVERY ID "+deliveryID1);
+//        System.out.println("AGENT "+Agent);
+//
+//
+//
+////        FirebaseDatabase database = FirebaseDatabase.getInstance();
+////        DatabaseReference myRef = database.getReference("tables");
+////        myRef.child("deliverydetails").child(""+deliveryID1).child("status").setValue("assigned");
+////        myRef.child("deldeliverydetails").child(""+deliveryID1).child("deliveryAgentID").setValue(Agent);
+////        System.out.println();
+//    }
 
 }

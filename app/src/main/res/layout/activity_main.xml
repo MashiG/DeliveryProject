@@ -30,7 +30,8 @@
         <EditText
             android:id="@+id/textEmailAddress"
             android:inputType="textEmailAddress"
-            style="@style/editText_style"/>
+            style="@style/editText_style"
+            />
 
         <EditText
             android:id="@+id/textPassword"

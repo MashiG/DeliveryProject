@@ -1,97 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/rectangle"
-    >
+    android:orientation="vertical">
 
-    <EditText
-    android:id="@+id/updateaccount"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="37dp"
-    android:background="@android:color/transparent"
-    android:ems="10"
-    android:inputType="textPersonName"
-    android:text="Update Account"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/updateaccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@android:color/transparent"
+            android:inputType="textPersonName"
+            android:text="Update Account"
+            android:textSize="24sp" />
 
-    android:textSize="24sp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="84dp"
-        android:layout_marginStart="84dp" />
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/updateaccount"
+            android:layout_marginTop="60dp"
+            android:background="@android:color/transparent"
+            android:inputType="textPersonName"
+            android:text="Name" />
 
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        android:layout_below="@+id/updateaccount"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="40dp"
-        android:layout_marginStart="40dp"
-        android:background="@android:color/transparent"/>
+        <EditText
+            android:id="@+id/nameinput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/name"
+            android:layout_marginTop="17dp"
+            android:ems="10"
+            android:inputType="textPersonName" />
 
-    <EditText
-        android:id="@+id/nameinput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/name"
-        android:layout_marginEnd="27dp"
-        android:layout_marginRight="27dp"
-        android:layout_marginTop="17dp"
-        android:ems="10"
-        android:inputType="textPersonName"
+        <TextView
+            android:id="@+id/phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@android:color/transparent"
+            android:inputType="textPersonName"
+            android:text="Phone" />
 
-        android:layout_alignLeft="@+id/name"
-        android:layout_alignStart="@+id/name" />
+        <EditText
+            android:id="@+id/phoneinput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="21dp"
+            android:ems="10"
+            android:inputType="textPersonName" />
 
-    <TextView
-        android:id="@+id/phone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/name"
-        android:layout_alignStart="@+id/name"
-        android:layout_below="@+id/nameinput"
-        android:layout_marginTop="30dp"
-        android:background="@android:color/transparent"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Phone" />
+        <Button
+            android:id="@+id/buttonupdate"
+            style="@style/button_style"
+            android:layout_width="150dp"
+            android:layout_marginTop="59dp"
+            android:text="Update"
+            android:textAllCaps="false" />
 
-    <EditText
-        android:id="@+id/phoneinput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/nameinput"
-        android:layout_alignStart="@+id/nameinput"
-        android:layout_below="@+id/phone"
-        android:layout_marginTop="21dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:layout_marginBottom="20dp"
-        android:layout_alignRight="@+id/nameinput"
-        android:layout_alignEnd="@+id/nameinput" />
-
-    <Button
-
-        android:id="@+id/buttonupdate"
-        android:text="Update"
-        android:textAllCaps="false"
-        android:layout_width="150dp"
-        style="@style/button_style"
-        android:layout_marginTop="59dp"
-        android:layout_below="@+id/phoneinput"
-        android:layout_alignLeft="@+id/updateaccount"
-        android:layout_alignStart="@+id/updateaccount"
-        android:layout_marginLeft="34dp"
-        android:layout_marginStart="34dp" />
+    </LinearLayout>
 </RelativeLayout>

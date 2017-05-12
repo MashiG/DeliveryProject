@@ -41,11 +41,12 @@ public class UpdateUserAcoountActivity extends AppCompatActivity {
 
     }
 
-    private void UpdateData(String Name,String Phone)
+    private void UpdateData(String name,String phone)
     {
         FirebaseDatabase db = FirebaseDatabase.getInstance();
         DatabaseReference DBupdatRef= db.getReference("tables");
-        DBupdatRef.child("users").child(name).child("phoneNumber").setValue(Phone);
+        DBupdatRef.child("users").child(getSharedPreferences("MYPREFS",0).getString("email","")).child("phoneNumber").setValue(phone);
+        DBupdatRef.child("users").child(getSharedPreferences("MYPREFS",0).getString("email","")).child("name").setValue(name);
         Toast.makeText(this, "Succesfully Updated details of "+name, Toast.LENGTH_SHORT).show();
     }
 

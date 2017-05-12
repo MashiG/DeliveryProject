@@ -1,10 +1,14 @@
 package com.example.hp.deliveryproject;
 
+import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.ImageButton;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -27,6 +31,7 @@ public class UserViewPickup extends AppCompatActivity{
     private RecyclerView recyclerView;
     private UserViewPickupController mAdapter;
     private DatabaseReference databaseReference;
+    private ImageButton userViewAddPickupRequest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +39,7 @@ public class UserViewPickup extends AppCompatActivity{
         setContentView(R.layout.userpickuprequestsrecyclerview);
 
         recyclerView = (RecyclerView) findViewById(R.id.user_recycler_view);
+        userViewAddPickupRequest = (ImageButton) findViewById(R.id.userPickRequestRecyclerViewAddPickupRequest);
 
         mAdapter = new UserViewPickupController(deliveryDetailsList);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
@@ -50,6 +56,14 @@ public class UserViewPickup extends AppCompatActivity{
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
+            }
+        });
+
+        userViewAddPickupRequest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UserViewPickup.this, UserAddPickupRequest.class);
+                startActivity(intent);
             }
         });
 

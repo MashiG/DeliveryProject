@@ -17,37 +17,9 @@
         android:ems="10"
         android:gravity="center"
         android:inputType="textPersonName"
+        android:paddingTop="20dp"
         android:text="Pickup Requests"
         android:textSize="24sp" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:layout_height="60dp"
-        android:paddingTop="30dp"
-        android:gravity="center">
-
-        <RadioButton
-            android:id="@+id/radioButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="pending"
-            android:textSize="18sp" />
-
-        <RadioButton
-            android:id="@+id/radioButton2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Allocated"
-            android:textSize="18sp" />
-
-        <RadioButton
-            android:id="@+id/radioButton3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Successfull"
-            android:textSize="18sp" />
-    </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/user_recycler_view"
@@ -57,11 +29,10 @@
         android:scrollbars="vertical" />
 
     <ImageButton
-        android:id="@+id/imageButton5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/userPickRequestRecyclerViewAddPickupRequest"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:background="@mipmap/ic_add"
-
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />

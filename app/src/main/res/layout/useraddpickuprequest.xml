@@ -31,6 +31,8 @@
             android:inputType="textPersonName"
             android:text="Add Request Pickup"
             android:textSize="24sp"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
             android:textAlignment="center"/>
 
         <TextView

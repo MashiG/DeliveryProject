@@ -60,7 +60,7 @@ public class DeliveryAgentViewPickup extends AppCompatActivity {
 
     private void prepareDeliveryDetailsData(DataSnapshot dataSnapshot) {
         for(DataSnapshot dataSnapshotItem : dataSnapshot.getChildren()){
-            if(dataSnapshotItem.getValue(DeliveryDetails.class).getStatus().equals("allocated"))
+            if(dataSnapshotItem.getValue(DeliveryDetails.class).getStatus().equals("assigned") && dataSnapshotItem.getValue(DeliveryDetails.class).getDeliveryAgentID().equals(getSharedPreferences("MYPREFS",0).getString("email","")))
                 deliveryAgentViewPickupList.add(dataSnapshotItem.getValue(DeliveryDetails.class));
             mAdapter = new DeliveryAgentViewPickupListController(deliveryAgentViewPickupList);
             recyclerView.setAdapter(mAdapter);

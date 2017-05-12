@@ -25,6 +25,7 @@ public class UserDashboard extends AppCompatActivity {
         changepasswordImage = (ImageButton) findViewById(R.id.btnChangeUserPassword);
         addPickupRequest = (ImageButton) findViewById(R.id.userdashboardimgaddpickuprequests);
 
+
         viewImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,7 +62,7 @@ public class UserDashboard extends AppCompatActivity {
             }
         });
 
-        logOut = (Button) findViewById(R.id.buttonlogout);
+        logOut = (Button) findViewById(R.id.button2);
         logOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

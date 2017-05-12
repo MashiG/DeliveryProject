@@ -31,12 +31,14 @@
         <EditText
             android:id="@+id/textEmailAddress"
             android:inputType="textEmailAddress"
+            android:hint="username"
             style="@style/editText_style"
             />
 
         <EditText
             android:id="@+id/textPassword"
             style="@style/editText_style"
+            android:hint="password"
             android:inputType="textPassword" />
 
         <Button

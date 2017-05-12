@@ -64,9 +64,31 @@ public class UserAddPickupRequest extends AppCompatActivity implements View.OnFo
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DeliveryDetails deliveryDetails = new DeliveryDetails("2",fromLocationText.getText().toString(),toLocationText.getText().toString(),"","mekala","pending",deliveryDateText.getText().toString(),"nodeliveryagent assigned",price.toString());
+
+                DatabaseReference ref = FirebaseDatabase.getInstance().getReference("tables/deliverydetails");
+                ref.limitToLast(1).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        int lastDeliveryID=0;
+                        for(DataSnapshot dataSnapshot1: dataSnapshot.getChildren()){
+                            lastDeliveryID = Integer.parseInt(dataSnapshot1.getValue(DeliveryDetails.class).getDeliveryID());
+                        }
+                        lastDeliveryID++;
+                        System.out.println("DELIVERY ID "+lastDeliveryID);
+                        DeliveryDetails deliveryDetailsItem = new DeliveryDetails(String.valueOf(lastDeliveryID),fromLocationText.getText().toString(),toLocationText.getText().toString(),"",getSharedPreferences("MYPREFS",0).getString("email",""),"pending",deliveryDateText.getText().toString(),"nodeliveryagent assigned",price.toString());
+                        insertDeliveryDetails(deliveryDetailsItem);
+                        finish();
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+/*
+                DeliveryDetails deliveryDetails = new DeliveryDetails("1",fromLocationText.getText().toString(),toLocationText.getText().toString(),"","mekala","pending",deliveryDateText.getText().toString(),"nodeliveryagent assigned",price.toString());
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("tables/deliverydetails");
+                DatabaseReference myRef = database.getReference("tables/deliverydetails/1");
                 myRef.setValue(deliveryDetails);
                 //myRef.setValue(deliveryDetails);
                 //myRef.orderByChild("userType").equalTo("Customer").addValueEventListener(new ValueEventListener() {
@@ -79,7 +101,7 @@ public class UserAddPickupRequest extends AppCompatActivity implements View.OnFo
                     public void onCancelled(DatabaseError databaseError) {
 
                     }
-                });
+                });*/
 
             }
         });
@@ -88,6 +110,11 @@ public class UserAddPickupRequest extends AppCompatActivity implements View.OnFo
 
 
 
+    }
+
+    private void insertDeliveryDetails(DeliveryDetails deliveryDetailsItem) {
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("tables/deliverydetails/"+deliveryDetailsItem.getDeliveryID());
+        ref.setValue(deliveryDetailsItem);
     }
 
     @Override

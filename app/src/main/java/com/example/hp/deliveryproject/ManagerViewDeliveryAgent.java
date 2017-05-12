@@ -7,6 +7,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.google.firebase.database.DataSnapshot;
@@ -33,6 +34,7 @@ public class ManagerViewDeliveryAgent extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ManagerViewDeliveryAgentController mAdapter;
     private DatabaseReference databaseReference;
+    private ImageButton addNewAgent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,16 @@ public class ManagerViewDeliveryAgent extends AppCompatActivity {
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
+        addNewAgent = (ImageButton) findViewById(R.id.btnAddNewAgent);
+
+        addNewAgent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ManagerViewDeliveryAgent.this, ManagerAddDeliveryPerson.class);
+                startActivity(intent);
+            }
+        });
+
 
         //CONNECT TO DATABASE AND THEN SET RECYLER VIEW ADAPTER
         databaseReference = FirebaseDatabase.getInstance().getReference("tables/users");

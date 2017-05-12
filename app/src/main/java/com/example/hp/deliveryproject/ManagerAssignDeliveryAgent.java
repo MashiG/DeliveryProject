@@ -51,6 +51,7 @@ public class ManagerAssignDeliveryAgent extends AppCompatActivity {
                 FirebaseDatabase chkDB= FirebaseDatabase.getInstance();
                 DatabaseReference chkref=chkDB.getReference("tables/deliverydetails");
                 chkref.child(deliveryID1).child("deliveryAgentID").setValue(et_name.getText().toString());
+                finish();
 
 //                chkref.addListenerForSingleValueEvent(new ValueEventListener() {
 //                    @Override

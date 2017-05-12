@@ -72,7 +72,9 @@ public class UserViewPickup extends AppCompatActivity{
 
     private void prepareDeliveryDetailsData(DataSnapshot dataSnapshot) {
         for(DataSnapshot dataSnapshotItem : dataSnapshot.getChildren()){
-            deliveryDetailsList.add(dataSnapshotItem.getValue(DeliveryDetails.class));
+            if(dataSnapshotItem.getValue(DeliveryDetails.class).getUserID().equals(getSharedPreferences("MYPREFS",0).getString("email","")))
+                deliveryDetailsList.add(dataSnapshotItem.getValue(DeliveryDetails.class));
+            System.out.println(getSharedPreferences("MYPREFS",0).getString("email","") +" HEREHR" );
             mAdapter = new UserViewPickupController(deliveryDetailsList);
             recyclerView.setAdapter(mAdapter);
         }

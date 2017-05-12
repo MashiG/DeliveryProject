@@ -22,7 +22,7 @@
 
             android:background="@android:color/transparent"
             android:inputType="textPersonName"
-            android:padding="40dp"
+            android:padding="20dp"
             android:text="Welcome"
             android:textAlignment="center"
             android:textSize="24sp"

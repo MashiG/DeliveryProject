@@ -55,7 +55,7 @@ public class RegisterActivity extends AppCompatActivity{
                 rootRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        if (dataSnapshot.child("users").hasChild(et_email.getText().toString())){
+                        if (dataSnapshot.child("users").hasChild(et_name.getText().toString())){
                             //et_name.setText("fuck");
                             Snackbar mySnackbar = Snackbar.make(getWindow().getDecorView().findViewById(android.R.id.content), "User Already Available", Snackbar.LENGTH_SHORT);
                             mySnackbar.show();
@@ -66,7 +66,7 @@ public class RegisterActivity extends AppCompatActivity{
                 DatabaseReference myRef = database.getReference("tables");
 
                 myRef = myRef.child("users");
-                myRef = myRef.child(userReg.getEmail().toString());
+                myRef = myRef.child(userReg.getName().toString());
                 myRef.setValue(userReg);
                             finish();//mekala
                         }

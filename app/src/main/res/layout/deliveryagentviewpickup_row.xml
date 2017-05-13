@@ -86,7 +86,7 @@
             <android.support.v7.widget.AppCompatImageButton
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:src="@mipmap/ic_manageaccount"
+                android:src="@mipmap/ic_accept"
                 android:id="@+id/btnAgentAccept"
                 />
         </LinearLayout>

@@ -82,7 +82,7 @@
         android:id="@+id/assignAgent"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:src="@mipmap/ic_manageaccount"
+        android:src="@mipmap/ic_assign"
         android:text="ASSIGN TO AN AGENT"
         android:layout_below="@+id/linearLayout2"
         android:layout_alignParentRight="true"

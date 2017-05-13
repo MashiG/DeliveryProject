@@ -43,7 +43,7 @@ public class ManagerAssignDeliveryAgent extends AppCompatActivity {
 
                 boolean deliveryAgentExsists = deliveryAgentExsists(et_name.getText().toString());
 
-                if(deliveryAgentExsists) {
+                if(deliveryAgentExsists==true) {
 
                     //Get the bundle
                     Bundle bundle = getIntent().getExtras();
@@ -57,6 +57,7 @@ public class ManagerAssignDeliveryAgent extends AppCompatActivity {
                     FirebaseDatabase chkDB = FirebaseDatabase.getInstance();
                     DatabaseReference chkref = chkDB.getReference("tables/deliverydetails");
                     chkref.child(deliveryID1).child("deliveryAgentID").setValue(et_name.getText().toString());
+                    chkref.child(""+deliveryID1).child("status").setValue("assigned");
                     finish();
 
 //                chkref.addListenerForSingleValueEvent(new ValueEventListener() {

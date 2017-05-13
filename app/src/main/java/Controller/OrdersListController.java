@@ -74,21 +74,21 @@ public class OrdersListController extends RecyclerView.Adapter<OrdersListControl
 
                 //Add the bundle to the intent
                 intent.putExtras(bundle);
-                assignDelAgent(Integer.parseInt(deliveryDetails.getDeliveryID()));
+                //assignDelAgent(Integer.parseInt(deliveryDetails.getDeliveryID()));
                 context.startActivity(intent);
             }
         });
 
     }
 
-    private void assignDelAgent(int DelId)
-    {
-
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("tables");
-        myRef.child("deliverydetails").child(""+DelId).child("status").setValue("assigned");
-        System.out.println();
-    }
+//    private void assignDelAgent(int DelId)
+//    {
+//
+//        FirebaseDatabase database = FirebaseDatabase.getInstance();
+//        DatabaseReference myRef = database.getReference("tables");
+//        myRef.child("deliverydetails").child(""+DelId).child("status").setValue("assigned");
+//        System.out.println();
+//    }
 
     @Override
     public int getItemCount() {

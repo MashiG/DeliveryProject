@@ -69,12 +69,16 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.02"
             android:autoLink="all"
-
             android:linksClickable="true"
             android:text="@string/lostpassword"
+            android:textAppearance="@style/TextAppearance.AppCompat.Button" />
 
-            android:textAppearance="@style/TextAppearance.AppCompat.Button"
-            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="A Proud Creation of Team EXIT - UCD-CS-B06 at NSBM Sri Lanka"
+            android:textAlignment="center"
+            android:textColor="@color/colorAccent"/>
     </LinearLayout>
 
 </RelativeLayout>

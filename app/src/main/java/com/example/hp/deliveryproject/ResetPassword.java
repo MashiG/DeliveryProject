@@ -89,6 +89,7 @@ public class ResetPassword extends AppCompatActivity {
                                         RetreiveFeedTask task = new RetreiveFeedTask(user);
                                         task.execute();
 
+
                                     }
 
                                     @Override
@@ -160,6 +161,8 @@ public class ResetPassword extends AppCompatActivity {
         @Override
         protected void onPostExecute(String s) {
             pddalog.dismiss();
+            Snackbar mySnackbar = Snackbar.make(getWindow().getDecorView().findViewById(android.R.id.content), "Email sent ,Check Your Email", Snackbar.LENGTH_SHORT);
+            mySnackbar.show();
         }
 
 

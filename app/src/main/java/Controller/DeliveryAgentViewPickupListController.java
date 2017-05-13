@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.hp.deliveryproject.R;
@@ -23,12 +24,14 @@ public class DeliveryAgentViewPickupListController extends RecyclerView.Adapter<
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView date, fromLocation, toLocation;
+        public ImageButton btnAgentAccept;
 
         public MyViewHolder(View view){
             super(view);
             date = (TextView) view.findViewById((R.id.deliveryAgentViewPickupRowDate));
             fromLocation = (TextView) view.findViewById((R.id.deliveryAgentViewPickupRowFromLocation));
             toLocation = (TextView) view.findViewById((R.id.deliveryAgentViewPickupRowToLocation));
+            btnAgentAccept = (ImageButton) view.findViewById(R.id.btnAgentAccept);
         }
     }
 
@@ -45,10 +48,16 @@ public class DeliveryAgentViewPickupListController extends RecyclerView.Adapter<
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        DeliveryDetails deliveryAgent = deliveryAgentViewPickupList.get(position);
+        final DeliveryDetails deliveryAgent = deliveryAgentViewPickupList.get(position);
         holder.date.setText(deliveryAgent.getDeliveryDate());
         holder.fromLocation.setText(deliveryAgent.getFromLocation());
         holder.toLocation.setText(deliveryAgent.getToLocation());
+        holder.btnAgentAccept.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                System.out.println("AGENT ACCEPT THIS ID"+deliveryAgent.getDeliveryID());
+            }
+        });
 
     }
 

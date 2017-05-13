@@ -45,17 +45,5 @@
 
         </android.support.v7.widget.RecyclerView>
     </android.support.constraint.ConstraintLayout>
-
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@mipmap/ic_add"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="10dp"
-        android:id="@+id/btnAddNewAgent" />
+    
 </RelativeLayout>

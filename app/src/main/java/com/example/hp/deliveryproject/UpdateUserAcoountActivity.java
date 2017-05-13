@@ -27,13 +27,11 @@ public class UpdateUserAcoountActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.updateaccount);
         updateButton = (Button) findViewById(R.id.buttonupdate);
-        userName= (TextView) findViewById(R.id.nameinput);
         Telephone= (TextView) findViewById(R.id.phoneinput);
 
         updateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                name=userName.getText().toString();
                 phone=Telephone.getText().toString();
                 UpdateData(name,phone);
             }
@@ -46,7 +44,7 @@ public class UpdateUserAcoountActivity extends AppCompatActivity {
         FirebaseDatabase db = FirebaseDatabase.getInstance();
         DatabaseReference DBupdatRef= db.getReference("tables");
         DBupdatRef.child("users").child(getSharedPreferences("MYPREFS",0).getString("email","")).child("phoneNumber").setValue(phone);
-        DBupdatRef.child("users").child(getSharedPreferences("MYPREFS",0).getString("email","")).child("name").setValue(name);
+        //DBupdatRef.child("users").child(getSharedPreferences("MYPREFS",0).getString("email","")).child("name").setValue(name);
         Toast.makeText(this, "Succesfully Updated details of "+name, Toast.LENGTH_SHORT).show();
     }
 

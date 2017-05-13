@@ -3,10 +3,12 @@ package com.example.hp.deliveryproject;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -39,19 +41,23 @@ public class ManagerAssignDeliveryAgent extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                //Get the bundle
-                Bundle bundle = getIntent().getExtras();
+                boolean deliveryAgentExsists = deliveryAgentExsists(et_name.getText().toString());
 
-                //Extract the data…
-                final String deliveryID1 = bundle.getString("deliveryID");
+                if(deliveryAgentExsists) {
 
-                System.out.println("DELIVERY ID "+deliveryID1);
+                    //Get the bundle
+                    Bundle bundle = getIntent().getExtras();
+
+                    //Extract the data…
+                    final String deliveryID1 = bundle.getString("deliveryID");
+
+                    System.out.println("DELIVERY ID " + deliveryID1);
 
 
-                FirebaseDatabase chkDB= FirebaseDatabase.getInstance();
-                DatabaseReference chkref=chkDB.getReference("tables/deliverydetails");
-                chkref.child(deliveryID1).child("deliveryAgentID").setValue(et_name.getText().toString());
-                finish();
+                    FirebaseDatabase chkDB = FirebaseDatabase.getInstance();
+                    DatabaseReference chkref = chkDB.getReference("tables/deliverydetails");
+                    chkref.child(deliveryID1).child("deliveryAgentID").setValue(et_name.getText().toString());
+                    finish();
 
 //                chkref.addListenerForSingleValueEvent(new ValueEventListener() {
 //                    @Override
@@ -81,9 +87,24 @@ public class ManagerAssignDeliveryAgent extends AppCompatActivity {
 //
 //                    }
 //                });
+                }else{
+                    Toast loginToast = Toast.makeText(ManagerAssignDeliveryAgent.this,"Invalid Delivery Agent!",Toast.LENGTH_SHORT);
+                    loginToast.setGravity(Gravity.CENTER,0,0);
+                    loginToast.show();
+                }
 
             }
         });
+
+    }
+
+    private boolean deliveryAgentExsists(String s) {
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("tables/users");
+        ref.child(s);
+        if(ref==null)
+            return false;
+        return true;
+
     }
 
 //    private void assignDelAgent(String Agent)

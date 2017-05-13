@@ -80,6 +80,7 @@
             android:layout_alignRight="@+id/recipientname"
             android:layout_alignStart="@+id/editText20"
             android:layout_below="@+id/editText20"
+            android:hint="MM/DD/YYYY"
             android:ems="10"
             android:inputType="date" />
 

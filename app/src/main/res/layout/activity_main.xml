@@ -73,7 +73,8 @@
             android:linksClickable="true"
             android:text="@string/lostpassword"
 
-            android:textAppearance="@style/TextAppearance.AppCompat.Button" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Button"
+            android:visibility="gone" />
     </LinearLayout>
 
 </RelativeLayout>

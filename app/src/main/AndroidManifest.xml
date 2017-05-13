@@ -32,6 +32,7 @@
         <activity android:name=".DeliveryAgentViewPickup"></activity>
         <activity android:name=".UpdateUserAcoountActivity"></activity>
         <activity android:name=".ResetPassword"></activity>
+        <activity android:name=".ManagerAddDeliveryPerson"></activity>
     </application>
 
 </manifest>

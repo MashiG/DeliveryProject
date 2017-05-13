@@ -15,19 +15,22 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Assign Delivery Agent"
+        android:editable="false"
         android:textSize="24sp"
         android:textAlignment="center"
         android:layout_alignBottom="@+id/editText8"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="71dp" />
 
-    <EditText
+    <TextView
         android:id="@+id/editText8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Type Delivery Agent User Name or User ID:"
+        android:editable="false"
+        android:textAlignment="center"
         android:background="@android:color/transparent"
         android:textStyle="bold"
         android:layout_above="@+id/etName"

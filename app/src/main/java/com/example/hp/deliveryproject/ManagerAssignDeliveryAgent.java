@@ -18,9 +18,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import Model.User;
 
-/**
- * Created by murtaza on 4/30/17.
- */
+
 
 public class ManagerAssignDeliveryAgent extends AppCompatActivity {
     EditText et_name;

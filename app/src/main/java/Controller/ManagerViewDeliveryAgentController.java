@@ -23,9 +23,7 @@ import java.util.List;
 import Model.DeliveryDetails;
 import Model.User;
 
-/**
- * Created by murtaza on 5/10/17.
- */
+
 
 public class ManagerViewDeliveryAgentController extends RecyclerView.Adapter<ManagerViewDeliveryAgentController.MyViewHolder> {
 

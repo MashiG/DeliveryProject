@@ -22,9 +22,6 @@ import Model.DeliveryDetails;
 import Model.Packages;
 import Model.User;
 
-/**
- * Created by murtaza on 4/30/17.
- */
 
 public class UserAddPickupRequest extends AppCompatActivity implements View.OnFocusChangeListener{
 

@@ -7,9 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-/**
- * Created by murtaza on 5/1/17.
- */
+
 
 public class DeliveryAgentDashboard extends AppCompatActivity{
 

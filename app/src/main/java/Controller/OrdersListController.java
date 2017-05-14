@@ -19,9 +19,7 @@ import java.util.List;
 
 import Model.DeliveryDetails;
 
-/**
- * Created by Bhagya Rathnayake on 5/2/2017.
- */
+
 
 public class OrdersListController extends RecyclerView.Adapter<OrdersListController.MyViewHolder>{
 

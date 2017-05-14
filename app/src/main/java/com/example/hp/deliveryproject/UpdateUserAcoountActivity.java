@@ -12,9 +12,7 @@ import android.widget.Toast;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-/**
- * Created by Bhagya Rathnayake on 5/11/2017.
- */
+
 
 public class UpdateUserAcoountActivity extends AppCompatActivity {
 

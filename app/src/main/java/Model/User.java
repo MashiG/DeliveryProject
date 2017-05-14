@@ -1,8 +1,6 @@
 package Model;
 
-/**
- * Created by murtaza on 4/29/17.
- */
+
 
 public class User {
     //EMAIL is the unique ID

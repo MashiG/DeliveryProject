@@ -1,8 +1,5 @@
 package Model;
 
-/**
- * Created by murtaza on 4/29/17.
- */
 
 public class Packages {
     String weight;

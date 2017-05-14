@@ -19,9 +19,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import Model.User;
 
-/**
- * Created by murtaza on 5/10/17.
- */
+
 
 public class ManagerAddDeliveryPerson extends AppCompatActivity {
 

@@ -2,9 +2,7 @@ package Model;
 
 import java.util.List;
 
-/**
- * Created by murtaza on 4/29/17.
- */
+
 
 public class DeliveryDetails {
     String deliveryID, fromLocation, toLocation, packageID, userID, status, deliveryDate, deliveryAgentID;

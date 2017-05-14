@@ -23,9 +23,7 @@ import Controller.OrdersListController;
 import Controller.UserViewPickupController;
 import Model.DeliveryDetails;
 
-/**
- * Created by murtaza on 4/30/17.
- */
+
 
 public class ManagerViewPickup extends AppCompatActivity {
 

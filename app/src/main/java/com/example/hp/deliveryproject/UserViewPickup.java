@@ -22,9 +22,7 @@ import java.util.List;
 import Controller.UserViewPickupController;
 import Model.DeliveryDetails;
 
-/**
- * Created by murtaza on 5/10/17.
- */
+
 
 public class UserViewPickup extends AppCompatActivity{
     private List<DeliveryDetails> deliveryDetailsList = new ArrayList<>();

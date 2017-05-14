@@ -28,9 +28,7 @@ import javax.mail.internet.MimeMessage;
 
 import Model.User;
 
-/**
- * Created by Lalendra on 5/12/2017.
- */
+
 
 public class ResetPassword extends AppCompatActivity {
     Button reset;

@@ -22,9 +22,7 @@ import Model.User;
 
 
 
-/**
- * Created by Bhagya Rathnayake on 5/10/2017.
- */
+
 
 public class DeliveryAgentViewPickupListController extends RecyclerView.Adapter<DeliveryAgentViewPickupListController.MyViewHolder> {
 

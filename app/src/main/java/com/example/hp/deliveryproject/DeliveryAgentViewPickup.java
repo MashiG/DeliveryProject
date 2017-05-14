@@ -19,9 +19,7 @@ import Controller.DeliveryAgentViewPickupListController;
 import Controller.UserViewPickupController;
 import Model.DeliveryDetails;
 
-/**
- * Created by murtaza on 5/10/17.
- */
+
 
 public class DeliveryAgentViewPickup extends AppCompatActivity {
 

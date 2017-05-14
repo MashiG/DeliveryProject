@@ -24,9 +24,6 @@ import Controller.ManagerViewDeliveryAgentController;
 import Model.DeliveryDetails;
 import Model.User;
 
-/**
- * Created by Lalendra on 5/10/2017.
- */
 
 public class ManagerViewDeliveryAgent extends AppCompatActivity {
 

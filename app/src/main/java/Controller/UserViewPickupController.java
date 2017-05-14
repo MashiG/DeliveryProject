@@ -22,9 +22,6 @@ import java.util.List;
 
 import Model.DeliveryDetails;
 
-/**
- * Created by murtaza on 5/10/17.
- */
 
 public class UserViewPickupController extends RecyclerView.Adapter<UserViewPickupController.MyViewHolder>{
 

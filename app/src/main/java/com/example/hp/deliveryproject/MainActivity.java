@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if (textEmail.getText().toString().equals("")) {
+                if (textEmail.getText().toString().equals("") || textEmail.getText().toString() == null) {
                     Toast noUsernameToast = Toast.makeText(MainActivity.this, "Please enter username!", Toast.LENGTH_SHORT);
                     noUsernameToast.setGravity(Gravity.CENTER, 0, 0);
                     noUsernameToast.show();
@@ -103,44 +103,60 @@ public class MainActivity extends AppCompatActivity {
                         pwrdEditor.commit();
                         //Bhagya- End of Invalidating Sessions
                     }
+                    try {
+                        FirebaseDatabase database = FirebaseDatabase.getInstance();
+                        DatabaseReference myRef = database.getReference("tables");
+                        myRef = myRef.child("users");
 
-                    FirebaseDatabase database = FirebaseDatabase.getInstance();
-                    DatabaseReference myRef = database.getReference("tables");
-                    myRef = myRef.child("users");
+                        myRef = myRef.child(textEmail.getText().toString());
+                        Log.i("MEkala", myRef.toString());
+                        if (myRef == null)
+                            loginStatus(false, "");
+                        myRef.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                try {
+                                    User user = dataSnapshot.getValue(User.class);
+                                    if ((textPassword.getText().toString().equals(user.getPassword()))) {
+                                        //Bhagya- Login Message;
+                                        Toast loginToast = Toast.makeText(MainActivity.this, "Log In Successful...!", Toast.LENGTH_SHORT);
+                                        loginToast.setGravity(Gravity.CENTER, 0, 0);
+                                        loginToast.show();
+                                        loginStatus(true, user.getUserType().toString());
+                                        //Bhagya - End of Login Message
+                                    } else if ((!textPassword.getText().toString().equals(user.getPassword())) || (!textEmail.getText().toString().equals(user.getEmail()))) {
+                                        Snackbar mySnackbar = Snackbar.make(getWindow().getDecorView().findViewById(android.R.id.content), "Invalid Username or Password", Snackbar.LENGTH_LONG);
+                                        mySnackbar.show();
+                                    } else {
+                                        //Bhagya- Password Error Message;
+                                        Toast loginToast = Toast.makeText(MainActivity.this, "Looks Like Something Went Wrong!", Toast.LENGTH_SHORT);
+                                        loginToast.setGravity(Gravity.CENTER, 0, 0);
+                                        loginToast.show();
+                                        //Bhagya- End of Password Error Message;
+                                    }
+                                }catch(Exception e){
+                                    e.printStackTrace();
+                                    recreate();
+                                    Toast noUsernameToast = Toast.makeText(MainActivity.this, "Try again. Error occurred!", Toast.LENGTH_SHORT);
+                                    noUsernameToast.setGravity(Gravity.CENTER, 0, 0);
+                                    noUsernameToast.show();
+                                }
 
-                    myRef = myRef.child(textEmail.getText().toString());
-                    Log.i("MEkala", myRef.toString());
-                    if (myRef == null)
-                        loginStatus(false, "");
-                    myRef.addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(DataSnapshot dataSnapshot) {
-                            User user = dataSnapshot.getValue(User.class);
-                            if ((textPassword.getText().toString().equals(user.getPassword()))) {
-                                //Bhagya- Login Message;
-                                Toast loginToast = Toast.makeText(MainActivity.this, "Log In Successful...!", Toast.LENGTH_SHORT);
-                                loginToast.setGravity(Gravity.CENTER, 0, 0);
-                                loginToast.show();
-                                loginStatus(true, user.getUserType().toString());
-                                //Bhagya - End of Login Message
-                            } else if ((!textPassword.getText().toString().equals(user.getPassword())) || (!textEmail.getText().toString().equals(user.getEmail()))) {
-                                Snackbar mySnackbar = Snackbar.make(getWindow().getDecorView().findViewById(android.R.id.content), "Invalid Username or Password", Snackbar.LENGTH_LONG);
-                                mySnackbar.show();
-                            } else {
-                                //Bhagya- Password Error Message;
-                                Toast loginToast = Toast.makeText(MainActivity.this, "Looks Like Something Went Wrong!", Toast.LENGTH_SHORT);
-                                loginToast.setGravity(Gravity.CENTER, 0, 0);
-                                loginToast.show();
-                                //Bhagya- End of Password Error Message;
                             }
 
-                        }
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
 
-                        @Override
-                        public void onCancelled(DatabaseError databaseError) {
+                            }
+                        });
 
-                        }
-                    });
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        Toast noUsernameToast = Toast.makeText(MainActivity.this, "Try again. Error occurred!", Toast.LENGTH_SHORT);
+                        noUsernameToast.setGravity(Gravity.CENTER, 0, 0);
+                        noUsernameToast.show();
+                    }
+
                 }
 
 
